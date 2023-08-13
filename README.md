@@ -1,125 +1,38 @@
-# Fridgefy
+This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-Welcome to Fridgefy!
-It is a web app that allows you to store your recipes and ingredients that you have in a fridge.
-Recipes can be filtered by ingredients, cuisine, diet and intolerances.
+## Getting Started
 
-## Dates
+First, run the development server:
 
- - Aug 11, 2023 - Project Kickoff
- - Aug 28, 2023 - Project Presentation
+```bash
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+```
 
-## Features
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-### All users
+You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
 
-- [ ] Search for recipes with filters (cuisine, diet and intolerances). Add all supported values to the filters. You can find it in the API documentation.
+[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
 
-### Only registered users
+The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
 
-- [ ] Add ingredients to the fridge
-- [ ] Add recipes to the wish list
-- [ ] Make shopping list based on selected recipes
-- [ ] Search for recipes based on ingredients in the fridge. Add a checkbox in the filter area to show only recipes with ingredients in the fridge.
+This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
-## Pages
+## Learn More
 
-- [ ] Home / Hero page
-- [ ] All Recipes page with search and filters
-- [ ] Wish list page with shopping list
+To learn more about Next.js, take a look at the following resources:
 
-## API
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-- https://spoonacular.com/food-api
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
-## Database
+## Deploy on Vercel
 
-- Fridge items and selected recipes are stored in the Local Storage of the browser.
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-## Authentication
-
-- By Google (Firebase Authentication)
-
-## Frontend
-
-- React / Next
-- Bootstrap / Styled Components / TailwindCSS
-- React Router
-- Redux or Context API + useReducer
-
-## Design Resources
-
-* A wireframe is provided within the repository.
-
-![wireframe](/CICCC-React-Final.png)
-
-* You can refer for design and UI components from:
-  - Dribbble
-  - Wix
-  - Template monster
-
-## Rules of GIT
-
-- Never code on master
-- Merge conflicts WILL HAPPEN. It's a natural part of developing. You are not doing anything wrong. There are ways of minimizing conflicts but you can never get rid of them.
-
-## Team Workflow
-
-### Format
-
-- SCRUM meetings: 5-10 minutes per day
-- Yesterday I was working on ...
-- Today I am working on ...
-- I am stuck on / I am moving slow on..., would anyone want to pair with me to help?
-
-### Dividing Tasks
-
-- Design
-- Frontend
-- Backend (API)
-- Pair programming (Take turns)
-
-### Understand your data
-
-- What is the data?
-- What data do you need?
-- What type of data do you need?
-- How to store the data?
-- Create the data flow
-
-search ingredient -> on click event -> send data to local storage -> get data from local storage -> display updated data
-
-### Set up your environment
-
-- One member of the team will create the Frontend App
-- Delete all the unnecessary files
-- Create the firebase project
-- Enable the firebase authentication
-- Create .env file at the root of the project with the firebase project credentials and add it to the .gitignore file (.env config)[https://create-react-app.dev/docs/adding-custom-environment-variables/]
-- **MAKE SURE YOU DON'T PUSH THE .ENV FILE TO GITHUB**
-- Push the initial commit to the repository
-- Every member should clone the repository
-- Every member should create their own branch
-
-### Create the design
-
-- Think about the UI and how would you split into components
-- Create the wireframes
-- Create the HTML structure
-- Create the mockups
-- Create the style guide
-
-### Create the frontend
-
-- Create the components
-- Create the event handlers
-
-### Create the State management
-
-- Are you using Redux or Context API?
-- How many reducers do you need?
-- Create the reducers
-- Create the reducer initial state
-- Create the reducer functions(actions)
-- Create the service files
-- Create the service functions(get/post/delete)
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
