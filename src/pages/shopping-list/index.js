@@ -1,4 +1,6 @@
-import Head from "next/head";
+import Head from 'next/head'
+import ItemsToBuy from '@/components/ItemsToBuy'
+import { recipe } from './practice'
 
 export default function ShoppingList() {
   return (
@@ -6,7 +8,8 @@ export default function ShoppingList() {
       <Head>
         <title>ShoppingList</title>
       </Head>
-      <div>ShoppingList</div>
+      {/* I'm placing this here for now/michiru */}
+      <ItemsToBuy recipe={recipe} />
     </>
-  );
+  )
 }

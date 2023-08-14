@@ -1,4 +1,4 @@
-import Head from "next/head";
+import Head from 'next/head'
 
 export default function Recipes() {
   return (
@@ -6,7 +6,6 @@ export default function Recipes() {
       <Head>
         <title>Recipes</title>
       </Head>
-      <div>Recipes</div>
     </>
-  );
+  )
 }
