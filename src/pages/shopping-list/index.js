@@ -1,4 +1,6 @@
 import Head from "next/head";
+import ItemsToBuy from "@/components/ItemsToBuy";
+import { recipe } from "./practice";
 
 import Header from "../../components/Header";
 
@@ -9,7 +11,8 @@ export default function ShoppingList() {
         <title>ShoppingList</title>
       </Head>
       <Header />
-      <div>ShoppingList</div>
+      {/* I'm placing this here for now/michiru */}
+      <ItemsToBuy recipe={recipe} />
     </>
   );
 }
