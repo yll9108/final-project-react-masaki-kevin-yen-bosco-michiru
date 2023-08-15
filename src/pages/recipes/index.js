@@ -1,6 +1,7 @@
-import Head from "next/head";
+import Head from 'next/head'
 
-import Header from "../../components/Header";
+import Header from '../../components/Header'
+import SearchInput from '@/components/SearchInput'
 
 export default function Recipes() {
   return (
@@ -10,6 +11,7 @@ export default function Recipes() {
       </Head>
       <Header />
       <div>Recipes</div>
+      <SearchInput />
     </>
-  );
+  )
 }
