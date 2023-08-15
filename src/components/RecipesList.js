@@ -1,8 +1,16 @@
 import React from 'react'
 import Image from 'next/image'
+import { useDispatch } from 'react-redux'
+import { addToMyRecipes } from '@/store/slicers/myReceips'
 
 function RecipesList({ recipes }) {
   console.log(recipes)
+
+  const dispatch = useDispatch()
+  const handleOnClick = (recipe) => {
+    dispatch(addToMyRecipes(recipe))
+  }
+
   return (
     <div>
       {recipes.map((recipe) => {
@@ -17,7 +25,13 @@ function RecipesList({ recipes }) {
                 height={200}
               />
             </div>
-            <button>add</button>
+            <button
+              onClick={() => {
+                handleOnClick(recipe)
+              }}
+            >
+              add
+            </button>
           </li>
         )
       })}
