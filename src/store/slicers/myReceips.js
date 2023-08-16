@@ -1,9 +1,13 @@
 import { createSlice } from '@reduxjs/toolkit'
 
-const initialState = {
-  recipes: [],
+const getInitailState = () => {
+  if (typeof window === 'undefined') return []
+  return localStorage.getItem('recipes') ?? []
 }
 
+const initialState = {
+  items: getInitailState(),
+}
 export const myReceipsSlice = createSlice({
   name: 'recipes',
   initialState,
