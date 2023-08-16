@@ -1,11 +1,20 @@
 import React, { useState } from "react";
+import { axiosInstance } from "@/axios";
 
 const MyFridgeSearch = () => {
     const [input, setInput] = useState("");
     const [items, setItems] = useState([]);
 
-    const handleInputChange = (e) => {
+    const handleInputChange = async (e) => {
         setInput(e.target.value);
+
+        await axiosInstance
+            .get(
+                `food/ingredients/autocomplete?apiKey=${process.env.NEXT_PUBLIC_SPOONACULAR_APIKEY}&query=${input}&number=5`
+            )
+            .then((res) => {
+                console.log(res);
+            });
     };
 
     const handleAddClick = () => {
