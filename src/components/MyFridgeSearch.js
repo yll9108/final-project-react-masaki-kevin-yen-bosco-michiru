@@ -1,39 +1,28 @@
 import React, { useRef, useState } from 'react'
-import { axiosInstance } from '@/axios'
+import { useDebounce } from '@/hooks/useDebounce'
+import { useAutoCompleteFetch } from '@/hooks/useAutoCompleteFetch'
 
 const MyFridgeSearch = () => {
   const [input, setInput] = useState('')
   const [items, setItems] = useState([])
 
-  //   const useDebounce = (value, delay = 500) => {
-  //     const [debouncedValue, setDebouncedValue] = useState(value)
-  //     const ref = useRef()
+  //why using ref? and not just the normal variable?
+  //it's because varibale changes on every render and ref doesn't change on redering
+  const preventSearchRef = useRef(false)
 
-  //     useEffect(() => {
-  //       ref.current = window.setTimeout(() => setDebouncedValue(value), delay)
+  const searchKeyword = useDebounce(input)
 
-  //       return () => {
-  //         if (ref.current !== undefined) {
-  //           window.clearTimeout(ref.current)
-  //         }
-  //       }
-  //     }, [value, delay])
-
-  //     return debouncedValue
-  //   }
-
-  //   const searchKeyword = useDebounce(searchString)
+  const { autoComplete, setAutoComplete } = useAutoCompleteFetch(
+    preventSearchRef,
+    searchKeyword
+  )
 
   const handleInputChange = async (e) => {
+    //if it's after the selection, the preventSearchRef is true and doesn't fetch, so change it to false
+    if (preventSearchRef.current === true) {
+      preventSearchRef.current = false
+    }
     setInput(e.target.value)
-    const searchKeyword = useDebounce(input)
-    await axiosInstance
-      .get(
-        `food/ingredients/autocomplete?apiKey=${process.env.NEXT_PUBLIC_SPOONACULAR_APIKEY}&query=${input}&number=5`
-      )
-      .then((res) => {
-        console.log(res)
-      })
   }
 
   const handleAddClick = () => {
@@ -49,6 +38,13 @@ const MyFridgeSearch = () => {
     setItems(ingredientsList)
   }
 
+  const handleAutoCompleteClick = (item) => {
+    //don't want to change the autocomplete when you select, so set it to true
+    preventSearchRef.current = true
+    setAutoComplete([])
+    setInput(item)
+  }
+
   return (
     <div>
       <input
@@ -58,6 +54,17 @@ const MyFridgeSearch = () => {
         id='inputIngredients'
         placeholder='Search'
       ></input>
+
+      {input && autoComplete.length > 0 && (
+        <>
+          {autoComplete.map((item, index) => (
+            <button onClick={() => handleAutoCompleteClick(item)} key={index}>
+              {item}
+            </button>
+          ))}
+        </>
+      )}
+
       <button onClick={handleAddClick}>Add</button>
       <div>
         <ul>

@@ -14,15 +14,13 @@ export const getStaticProps = async () => {
       )
       .then((res) => res.data.results)
 
-    // const initialRecipes = response.data.results;
-    // console.log(“initialRecipes”, initialRecipes);
     return {
       props: {
         initialRecipes,
       },
     }
   } catch (err) {
-    // console.log(“API not working”, err);
+    console.log('API not working', err)
     return {
       props: {
         recipes: [],

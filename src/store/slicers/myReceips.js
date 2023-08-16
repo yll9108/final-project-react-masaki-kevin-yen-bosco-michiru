@@ -6,7 +6,7 @@ const getInitailState = () => {
 }
 
 const initialState = {
-  items: getInitailState(),
+  recipes: [],
 }
 export const myReceipsSlice = createSlice({
   name: 'recipes',
@@ -23,13 +23,22 @@ export const myReceipsSlice = createSlice({
       localStorage.setItem('recipes', JSON.stringify(state.recipes))
     },
     removeFromMyRecipes: (state, action) => {
-      state = state.filter(
-        (item) => item.id !== action.payload.itemId //filter by ID or name not sure yet
+      state.recipes = state.recipes.filter(
+        (item) => item.id !== action.payload.id
       )
       localStorage.setItem('recipes', JSON.stringify(state.recipes))
+    },
+    setDataFromStorage: (state) => {
+      if (!state.recipes.length) {
+        const data = localStorage.getItem('recipes')
+        if (data) {
+          state.recipes = JSON.parse(data)
+        }
+      }
     },
   },
 })
 
-export const { addToMyRecipes, removeFromMyRecipes } = myReceipsSlice.actions
+export const { addToMyRecipes, removeFromMyRecipes, setDataFromStorage } =
+  myReceipsSlice.actions
 export default myReceipsSlice.reducer

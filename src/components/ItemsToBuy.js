@@ -11,7 +11,7 @@ function ItemsToBuy({ recipe }) {
 
   //take out the ingredients and put into an array
   const requiredIngredients = []
-  recipe.missedIngredients.map((ingredient) => {
+  recipe?.missedIngredients?.map((ingredient) => {
     requiredIngredients.push(ingredient.name)
   })
 
