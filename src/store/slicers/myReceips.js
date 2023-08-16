@@ -18,6 +18,14 @@ export const myReceipsSlice = createSlice({
       )
       localStorage.setItem('recipes', JSON.stringify(state.items))
     },
+    // strageData: (state) => {
+    //   if (!state.items.length) {
+    //     const data = localStorage.getItem('recipes')
+    //     if (data) {
+    //       state.items = JSON.parse(data)
+    //     }
+    //   }
+    // },
   },
 })
 
