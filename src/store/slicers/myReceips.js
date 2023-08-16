@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
-  items: [],
+  recipes: [],
 }
 
 export const myReceipsSlice = createSlice({
@@ -9,14 +9,20 @@ export const myReceipsSlice = createSlice({
   initialState,
   reducers: {
     addToMyRecipes: (state, action) => {
-      state.items = action.payload
-      localStorage.setItem('recipes', JSON.stringify(state.items))
+      //check if the recipe already exsits
+      const recipe = state.recipes.find(
+        (recipe) => recipe.id === action.payload.id
+      )
+      if (recipe) return
+      state.recipes.push(action.payload)
+
+      localStorage.setItem('recipes', JSON.stringify(state.recipes))
     },
     removeFromMyRecipes: (state, action) => {
-      state.items = state.items.filter(
+      state = state.filter(
         (item) => item.id !== action.payload.itemId //filter by ID or name not sure yet
       )
-      localStorage.setItem('recipes', JSON.stringify(state.items))
+      localStorage.setItem('recipes', JSON.stringify(state.recipes))
     },
   },
 })
