@@ -19,10 +19,10 @@ export const myReceipsSlice = createSlice({
       localStorage.setItem('recipes', JSON.stringify(state.recipes))
     },
     removeFromMyRecipes: (state, action) => {
-      state = state.filter(
-        (item) => item.id !== action.payload.itemId //filter by ID or name not sure yet
-      )
-      localStorage.setItem('recipes', JSON.stringify(state.recipes))
+      state.recipes = state.recipes.filter(
+        (item) => item.id !== action.payload.id
+      );
+      localStorage.setItem('recipes', JSON.stringify(state.recipes));
     },
     setDataFromStorage: (state) => {
       if (!state.recipes.length) {

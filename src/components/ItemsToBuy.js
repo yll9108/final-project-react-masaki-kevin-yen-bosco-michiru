@@ -4,7 +4,6 @@ import { useSelector } from 'react-redux'
 
 //onclickでrecipeを渡してくる。初期値は空の配列か何か
 function ItemsToBuy({ recipe }) {
-  console.log("recipe", recipe);
   const myFridgeItems = useSelector((state) => state.fridge)
   const itemsToGet = useSelector((state) => state.itemsToGet)
   console.log(myFridgeItems)

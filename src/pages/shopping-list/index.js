@@ -15,7 +15,7 @@ export default function ShoppingList() {
     dispatch(setDataFromStorage());
   }, []);
   const recipes = useSelector((state) => state.recipes.recipes);
-  const [selecedRecipe, setSelectedRecipe] = useState([]);
+  const [selecedRecipe, setSelectedRecipe] = useState(null);
 
   return (
     <>
