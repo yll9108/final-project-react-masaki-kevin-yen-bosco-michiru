@@ -24,16 +24,16 @@ export const myReceipsSlice = createSlice({
       )
       localStorage.setItem('recipes', JSON.stringify(state.recipes))
     },
-    // strageData: (state) => {
-    //   if (!state.items.length) {
-    //     const data = localStorage.getItem('recipes')
-    //     if (data) {
-    //       state.items = JSON.parse(data)
-    //     }
-    //   }
-    // },
+    setDataFromStorage: (state) => {
+      if (!state.recipes.length) {
+        const data = localStorage.getItem('recipes')
+        if (data) {
+          state.recipes = JSON.parse(data)
+        }
+      }
+    },
   },
 })
 
-export const { addToMyRecipes, removeFromMyRecipes } = myReceipsSlice.actions
+export const { addToMyRecipes, removeFromMyRecipes, setDataFromStorage } = myReceipsSlice.actions;
 export default myReceipsSlice.reducer
