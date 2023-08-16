@@ -1,24 +1,27 @@
-import { axiosInstance } from "@/axios";
 import Head from "next/head";
 import Header from "../../components/Header";
-
+import SearchInput from "@/components/SearchInput";
+import { useState } from "react";
+import RecipesList from "@/components/RecipesList";
+import MyFridge from "@/components/MyFridge";
+import { axiosInstance } from "@/axios";
 export const getStaticProps = async () => {
     try {
-        const response = await axiosInstance.get(
-            `recipes/complexSearch?apiKey=${process.env.NEXT_PUBLIC_SPOONACULAR_APIKEY}&number=2&fillIngredients=true`
-        );
-        const recipes = response.data.results.map((recipe) => ({
-            id: recipe.id,
-            title: recipe.title,
-            image: recipe.image,
-        }));
+        const initialRecipes = await axiosInstance
+            .get(
+                `recipes/complexSearch?apiKey=${process.env.NEXT_PUBLIC_SPOONACULAR_APIKEY}&number=2&fillIngredients=true`
+            )
+            .then((res) => res.data.results);
+        console.log(initialRecipes);
+        // const initialRecipes = response.data.results;
+        // console.log(“initialRecipes”, initialRecipes);
         return {
             props: {
-                recipes,
+                initialRecipes,
             },
         };
     } catch (err) {
-        console.log("API not working", err);
+        // console.log(“API not working”, err);
         return {
             props: {
                 recipes: [],
@@ -26,8 +29,8 @@ export const getStaticProps = async () => {
         };
     }
 };
-
-export default function Recipes(props) {
+export default function Recipes({ initialRecipes }) {
+    const [recipes, setRecipes] = useState(initialRecipes);
     return (
         <>
             <Head>
@@ -35,14 +38,9 @@ export default function Recipes(props) {
             </Head>
             <Header />
             <div>Recipes</div>
-            <ul>
-                {props.recipes.map((recipe) => (
-                    <li key={recipe.id}>
-                        {recipe.title}
-                        <img src={recipe.image} alt={recipe.title} />
-                    </li>
-                ))}
-            </ul>
+            <MyFridge />
+            <SearchInput setRecipes={setRecipes} />
+            <RecipesList recipes={recipes} />
         </>
     );
 }
