@@ -1,23 +1,35 @@
 import Head from "next/head";
 import ItemsToBuy from "@/components/ItemsToBuy";
+import { useSelector } from "react-redux";
+import { useState, useEffect } from "react";
 import { recipe } from "./practice";
+import { useDispatch } from "react-redux";
+import { setDataFromStorage } from "@/store/slicers/myReceips";
 
 import Header from "../../components/Header";
 import MyFridge from "@/components/MyFridge";
 
+import RecipeList from "../../components/shopping-list/RecipeList";
+
 export default function ShoppingList() {
-    return (
-        <>
-            <Head>
-                <title>ShoppingList</title>
-            </Head>
-            <Header />
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(setDataFromStorage());
+  }, []);
+  const recipes = useSelector((state) => state.recipes.recipes);
+  const [selecedRecipe, setSelectedRecipe] = useState(null);
 
-            {/* I put this component here for testing.  -Kevin */}
-            <MyFridge />
-
-            {/* I'm placing this here for now/michiru */}
-            <ItemsToBuy recipe={recipe} />
-        </>
-    );
+  return (
+    <>
+      <Head>
+        <title>ShoppingList</title>
+      </Head>
+      <Header />
+      {/* I put this component here for testing.  -Kevin */}
+      <MyFridge />
+      <RecipeList recipes={recipes} setSelectedRecipe={setSelectedRecipe} />
+      {/* I'm placing this here for now/michiru */}
+      <ItemsToBuy recipe={selecedRecipe} />
+    </>
+  );
 }
