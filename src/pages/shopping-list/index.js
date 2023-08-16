@@ -7,6 +7,8 @@ import { useDispatch } from "react-redux";
 import { setDataFromStorage } from "@/store/slicers/myReceips";
 
 import Header from "../../components/Header";
+import MyFridge from "@/components/MyFridge";
+
 import RecipeList from "../../components/shopping-list/RecipeList";
 
 export default function ShoppingList() {
@@ -23,6 +25,8 @@ export default function ShoppingList() {
         <title>ShoppingList</title>
       </Head>
       <Header />
+      {/* I put this component here for testing.  -Kevin */}
+      <MyFridge />
       <RecipeList recipes={recipes} setSelectedRecipe={setSelectedRecipe} />
       {/* I'm placing this here for now/michiru */}
       <ItemsToBuy recipe={selecedRecipe} />
