@@ -6,36 +6,36 @@ import RecipesList from "@/components/RecipesList";
 import MyFridge from "@/components/MyFridge";
 import { axiosInstance } from "@/axios";
 import { test } from "./test";
-import { useDispatch } from 'react-redux';
-import { addToMyRecipes } from '@/store/slicers/myReceips';
+import { useDispatch } from "react-redux";
+import { addToMyRecipes } from "@/store/slicers/myReceips";
 import MyRecipes from "@/components/MyRecipe";
+import FilterArea from "@/components/FilterArea";
 
 export const getStaticProps = async () => {
-  try {
-    const initialRecipes = await axiosInstance
-      .get(
-        `recipes/complexSearch?apiKey=${process.env.NEXT_PUBLIC_SPOONACULAR_APIKEY}&number=2&fillIngredients=true`
-      )
-      .then((res) => res.data.results)
+    try {
+        const initialRecipes = await axiosInstance
+            .get(
+                `recipes/complexSearch?apiKey=${process.env.NEXT_PUBLIC_SPOONACULAR_APIKEY}&number=2&fillIngredients=true`
+            )
+            .then((res) => res.data.results);
 
-    return {
-      props: {
-        initialRecipes,
-      },
+        return {
+            props: {
+                initialRecipes,
+            },
+        };
+    } catch (err) {
+        console.log("API not working", err);
+        return {
+            props: {
+                recipes: [],
+            },
+        };
     }
-  } catch (err) {
-    console.log('API not working', err)
-    return {
-      props: {
-        recipes: [],
-      },
-    }
-  }
-}
+};
 
 export default function Recipes({ initialRecipes }) {
     const [recipes, setRecipes] = useState(initialRecipes);
-    
 
     return (
         <>
@@ -46,6 +46,7 @@ export default function Recipes({ initialRecipes }) {
             <div>Recipes</div>
             <MyFridge />
             <SearchInput setRecipes={setRecipes} />
+            <FilterArea />
             <RecipesList recipes={recipes} />
             <MyRecipes />
         </>
