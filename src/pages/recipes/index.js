@@ -1,10 +1,14 @@
-import Head from 'next/head'
-import Header from '../../components/Header'
-import SearchInput from '@/components/SearchInput'
-import { useState } from 'react'
-import RecipesList from '@/components/RecipesList'
-import MyFridge from '@/components/MyFridge'
-import { axiosInstance } from '@/axios'
+import Head from "next/head";
+import Header from "../../components/Header";
+import SearchInput from "@/components/SearchInput";
+import { useState, useEffect } from "react";
+import RecipesList from "@/components/RecipesList";
+import MyFridge from "@/components/MyFridge";
+import { axiosInstance } from "@/axios";
+import { test } from "./test";
+import { useDispatch } from 'react-redux';
+import { addToMyRecipes } from '@/store/slicers/myReceips';
+import MyRecipes from "@/components/MyRecipe";
 
 export const getStaticProps = async () => {
   try {
@@ -30,21 +34,20 @@ export const getStaticProps = async () => {
 }
 
 export default function Recipes({ initialRecipes }) {
-  const [recipes, setRecipes] = useState(initialRecipes)
+    const [recipes, setRecipes] = useState(initialRecipes);
+    
 
-  return (
-    <>
-      <Head>
-        <title>Recipes</title>
-      </Head>
-
-      <Header />
-      <div>Recipes</div>
-      <MyFridge />
-
-      <SearchInput setRecipes={setRecipes} />
-
-      <RecipesList recipes={recipes} />
-    </>
-  )
+    return (
+        <>
+            <Head>
+                <title>Recipes</title>
+            </Head>
+            <Header />
+            <div>Recipes</div>
+            <MyFridge />
+            <SearchInput setRecipes={setRecipes} />
+            <RecipesList recipes={recipes} />
+            <MyRecipes />
+        </>
+    );
 }
