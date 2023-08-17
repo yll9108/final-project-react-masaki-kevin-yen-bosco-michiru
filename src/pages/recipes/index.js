@@ -11,26 +11,27 @@ import { addToMyRecipes } from '@/store/slicers/myReceips';
 import MyRecipes from "@/components/MyRecipe";
 
 export const getStaticProps = async () => {
-    try {
-        const initialRecipes = await axiosInstance
-            .get(
-                `recipes/complexSearch?apiKey=${process.env.NEXT_PUBLIC_SPOONACULAR_APIKEY}&number=2&fillIngredients=true`
-            )
-            .then((res) => res.data.results);
-        console.log(initialRecipes);
-        return {
-            props: {
-                initialRecipes,
-            },
-        };
-    } catch (err) {
-        return {
-            props: {
-                recipes: [],
-            },
-        };
+  try {
+    const initialRecipes = await axiosInstance
+      .get(
+        `recipes/complexSearch?apiKey=${process.env.NEXT_PUBLIC_SPOONACULAR_APIKEY}&number=2&fillIngredients=true`
+      )
+      .then((res) => res.data.results)
+
+    return {
+      props: {
+        initialRecipes,
+      },
     }
-};
+  } catch (err) {
+    console.log('API not working', err)
+    return {
+      props: {
+        recipes: [],
+      },
+    }
+  }
+}
 
 export default function Recipes({ initialRecipes }) {
     const [recipes, setRecipes] = useState(initialRecipes);
