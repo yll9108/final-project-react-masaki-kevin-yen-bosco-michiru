@@ -1,9 +1,12 @@
 import React, { useState } from "react";
 import { axiosInstance } from "@/axios";
+import { addToFridge, removeFromFridge } from "@/store/slicers/myFridge";
+import { useDispatch, useSelector } from "react-redux";
 
 const MyFridgeSearch = () => {
     const [input, setInput] = useState("");
-    const [items, setItems] = useState([]);
+    const items = useSelector((state) => state.fridge);
+    const dispatch = useDispatch();
 
     const handleInputChange = async (e) => {
         setInput(e.target.value);
@@ -19,15 +22,13 @@ const MyFridgeSearch = () => {
 
     const handleAddClick = () => {
         if (input) {
-            setItems((prevData) => [...prevData, input]);
+            dispatch(addToFridge(input));
             setInput("");
         }
     };
 
     const handleDelete = (index) => {
-        const ingredientsList = [...items];
-        ingredientsList.splice(index, 1);
-        setItems(ingredientsList);
+        dispatch(removeFromFridge(items[index]));
     };
 
     return (
