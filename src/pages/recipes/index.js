@@ -1,10 +1,12 @@
 import Head from "next/head";
 import Header from "../../components/Header";
 import SearchInput from "@/components/SearchInput";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import RecipesList from "@/components/RecipesList";
 import MyFridge from "@/components/MyFridge";
 import { axiosInstance } from "@/axios";
+import { test } from "./test";
+
 export const getStaticProps = async () => {
     try {
         const initialRecipes = await axiosInstance
@@ -13,15 +15,12 @@ export const getStaticProps = async () => {
             )
             .then((res) => res.data.results);
         console.log(initialRecipes);
-        // const initialRecipes = response.data.results;
-        // console.log(“initialRecipes”, initialRecipes);
         return {
             props: {
                 initialRecipes,
             },
         };
     } catch (err) {
-        // console.log(“API not working”, err);
         return {
             props: {
                 recipes: [],
@@ -29,8 +28,19 @@ export const getStaticProps = async () => {
         };
     }
 };
+
 export default function Recipes({ initialRecipes }) {
     const [recipes, setRecipes] = useState(initialRecipes);
+    const [ingredientImages, setIngredientImages] = useState([]);
+
+    useEffect(() => {
+        const ingredients = test.products.map((product) => ({
+            name: product.title,
+            image: product.image,
+        }));
+        setIngredientImages(ingredients);
+    }, []);
+
     return (
         <>
             <Head>
@@ -41,6 +51,12 @@ export default function Recipes({ initialRecipes }) {
             <MyFridge />
             <SearchInput setRecipes={setRecipes} />
             <RecipesList recipes={recipes} />
+            {ingredientImages.map((item, index) => (
+                <div key={index}>
+                    <img src={item.image} alt="recipe Image" width={100} height={100}/>
+                    <p>{item.name}</p>
+                </div>
+            ))}
         </>
     );
 }
