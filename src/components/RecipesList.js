@@ -4,8 +4,6 @@ import { useDispatch } from 'react-redux'
 import { addToMyRecipes } from '@/store/slicers/myReceips'
 
 function RecipesList({ recipes }) {
-  console.log(recipes)
-
   const dispatch = useDispatch()
   const handleOnClick = (recipe) => {
     dispatch(addToMyRecipes(recipe))
