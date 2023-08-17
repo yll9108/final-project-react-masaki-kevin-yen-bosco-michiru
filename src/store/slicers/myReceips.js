@@ -10,12 +10,13 @@ export const myReceipsSlice = createSlice({
   reducers: {
     addToMyRecipes: (state, action) => {
       //check if the recipe already exsits
+      console.log(action.payload)
       const recipe = state.recipes.find(
         (recipe) => recipe.id === action.payload.id
       )
       if (recipe) return
       state.recipes.push(action.payload)
-
+console.log(state.recipes)
       localStorage.setItem('recipes', JSON.stringify(state.recipes))
     },
     removeFromMyRecipes: (state, action) => {
