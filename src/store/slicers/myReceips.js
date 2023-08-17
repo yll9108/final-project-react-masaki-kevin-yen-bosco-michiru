@@ -24,8 +24,9 @@ console.log(state.recipes)
       localStorage.setItem('recipes', JSON.stringify(state.recipes))
     },
     removeFromMyRecipes: (state, action) => {
+      console.log(action.payload)
       state.recipes = state.recipes.filter(
-        (item) => item.id !== action.payload.id
+        (item) => item.id !== action.payload
       )
       localStorage.setItem('recipes', JSON.stringify(state.recipes))
     },
