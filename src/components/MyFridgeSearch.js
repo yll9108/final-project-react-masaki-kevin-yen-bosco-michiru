@@ -1,12 +1,11 @@
 import React, { useRef, useState } from "react";
 import { useDebounce } from "@/hooks/useDebounce";
 import { useAutoCompleteFetch } from "@/hooks/useAutoCompleteFetch";
-import { addToFridge, removeFromFridge } from "@/store/slicers/myFridge";
+import { addToFridge } from "@/store/slicers/myFridge";
 import { useDispatch, useSelector } from "react-redux";
 
 const MyFridgeSearch = () => {
     const [input, setInput] = useState("");
-    const items = useSelector((state) => state.fridge);
     const dispatch = useDispatch();
 
     //why using ref? and not just the normal variable?
@@ -22,9 +21,6 @@ const MyFridgeSearch = () => {
         }
     };
 
-    const handleDelete = (index) => {
-        dispatch(removeFromFridge(items[index]));
-    };
     const { autoComplete, setAutoComplete } = useAutoCompleteFetch(
         preventSearchRef,
         searchKeyword
@@ -69,18 +65,6 @@ const MyFridgeSearch = () => {
             )}
 
             <button onClick={handleAddClick}>Add</button>
-            <div>
-                <ul>
-                    {items.map((data, index) => (
-                        <li key={index}>
-                            {data}
-                            <button onClick={() => handleDelete(index)}>
-                                X
-                            </button>
-                        </li>
-                    ))}
-                </ul>
-            </div>
         </div>
     );
 };
