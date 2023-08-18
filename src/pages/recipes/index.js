@@ -33,6 +33,7 @@ export const getStaticProps = async () => {
 
 export default function Recipes({ initialRecipes }) {
   const [recipes, setRecipes] = useState(initialRecipes)
+  console.log(recipes)
   useFetch(setRecipes)
 
   return (
