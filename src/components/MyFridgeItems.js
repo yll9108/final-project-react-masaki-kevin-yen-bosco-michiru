@@ -3,12 +3,15 @@ import { useDispatch, useSelector } from "react-redux";
 import { removeFromFridge } from "@/store/slicers/myFridge";
 import styled from "styled-components";
 
+import MyFridgeItem from "./MyFridgeItem";
+
 const MyFridgeItems = () => {
     const items = useSelector((state) => state.fridge.items);
     const dispatch = useDispatch();
 
-    const handleDelete = (index) => {
-        dispatch(removeFromFridge(items[index]));
+    const handleCheckBox = (item) => {
+
+
     };
 
     //Style
@@ -19,34 +22,16 @@ const MyFridgeItems = () => {
         margin: 0;
     `;
 
-    const ItemsLi = styled.li`
-        margin: 10px 0;
-    `;
-
-    const DeleteBtn = styled.button`
-        font-size: 15px;
-        margin: 5px;
-        background: none;
-        border: none;
-        cursor: pointer;
-        outline: none;
-    `;
-
     return (
+      <div>
         <div>
-            <div>
-                <ItemsUl>
-                    {items.map((data, index) => (
-                        <ItemsLi key={index}>
-                            {data}
-                            <DeleteBtn onClick={() => handleDelete(index)}>
-                                X
-                            </DeleteBtn>
-                        </ItemsLi>
-                    ))}
-                </ItemsUl>
-            </div>
+          <ItemsUl>
+            {items.map((data, index) => (
+              <MyFridgeItem key={index} item={data}/>
+            ))}
+          </ItemsUl>
         </div>
+      </div>
     );
 };
 

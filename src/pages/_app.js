@@ -15,7 +15,7 @@ const LocalStorageProvider = ({ children }) => {
       localStorage.getItem('fridgeItem') ?? '[]'
     )
     dispatch(initialRecipesSet(existingRecipesList))
-    dispatch(initialFridgeItemsSet(existingFridgeItemsList))
+    dispatch(initialFridgeItemsSet(existingFridgeItemsList.items))
   }, [dispatch])
 
   return <>{children}</>
