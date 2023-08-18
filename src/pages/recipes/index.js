@@ -6,6 +6,7 @@ import RecipesList from '@/components/RecipesList'
 import MyFridge from '@/components/MyFridge'
 import { axiosInstance } from '@/axios'
 import MyRecipes from '@/components/MyRecipe'
+import { useFetch } from '@/hooks/useFetch'
 
 export const getStaticProps = async () => {
   try {
@@ -32,6 +33,7 @@ export const getStaticProps = async () => {
 
 export default function Recipes({ initialRecipes }) {
   const [recipes, setRecipes] = useState(initialRecipes)
+  useFetch(setRecipes)
 
   return (
     <>
