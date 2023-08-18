@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from 'react-redux'
 import { removeFromFridge } from '@/store/slicers/myFridge'
 import styled from 'styled-components'
 
+import MyFridgeItem from './MyFridgeItem'
+
 const MyFridgeItems = () => {
   const items = useSelector((state) => state.fridge.items)
   console.log(items)
