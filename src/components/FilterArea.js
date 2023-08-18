@@ -2,7 +2,6 @@ import { axiosInstance } from "@/axios";
 import axios from "axios";
 import React from "react";
 import { useState, useEffect } from "react";
-import RecipeList from "./shopping-list/RecipeList";
 
 const availableCuisines = [
     "African",
@@ -32,6 +31,20 @@ const availableCuisines = [
     "Spanish",
     "Thai",
     "Vietnamese",
+];
+
+const availableDiet = [
+    "Gluten Free",
+    "Ketogenic",
+    "Vegetarian",
+    "Lacto-Vegetarian",
+    "Ovo-Vegetarian",
+    "Vegan",
+    "Pescetarian",
+    "Paleo",
+    "Primal",
+    "Low FODMAP",
+    "Whole30",
 ];
 
 export default function FilterArea({ setRecipes }) {
@@ -87,11 +100,6 @@ export default function FilterArea({ setRecipes }) {
                 <h3>DIET</h3>
                 <h3>INTOLERENCES</h3>
             </div>
-            {/* <div>
-                <h2>Recipes</h2>
-                <RecipeList recipes={recipes} />
-            </div> */}
-            {/* for testing */}
         </>
     );
 }
