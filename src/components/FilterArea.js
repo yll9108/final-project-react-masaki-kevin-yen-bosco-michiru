@@ -2,6 +2,7 @@ import { axiosInstance } from "@/axios";
 import axios from "axios";
 import React from "react";
 import { useState, useEffect } from "react";
+import RecipeList from "./shopping-list/RecipeList";
 
 const availableCuisines = [
     "African",
@@ -88,12 +89,9 @@ export default function FilterArea() {
             </div>
             <div>
                 <h2>Recipes</h2>
-                <ul>
-                    {recipes.map((recipe) => (
-                        <li key={recipe.id}>{recipe.title}</li>
-                    ))}
-                </ul>
+                <RecipeList recipes={recipes} />
             </div>
+            {/* for testing */}
         </>
     );
 }
