@@ -17,10 +17,11 @@ export const useFetch = (setRecipes) => {
     state.search.filterIntolerance.join(',')
   )
   useEffect(() => {
+    console.log(myFridgeIngredients)
     const fetchData = async () => {
       await axiosInstance
         .get(
-          `recipes/complexSearch?apiKey=${process.env.NEXT_PUBLIC_SPOONACULAR_APIKEY}&fillIngredients=true&query=${searchRecipe}&cuisine=${filterCuisine}&diet=${filterDiet}&intolerances=${filterIntolerance}&includeIngredients=${myFridgeIngredients}&number=5`
+          `recipes/complexSearch?apiKey=${process.env.NEXT_PUBLIC_SPOONACULAR_APIKEY}&fillIngredients=true&query=${searchRecipe}&cuisine=${filterCuisine}&diet=${filterDiet}&intolerances=${filterIntolerance}&includeIngredients=${myFridgeIngredients}&number=2`
         )
         .then((res) => setRecipes(res.data.results))
         .catch((err) => console.log(err))
