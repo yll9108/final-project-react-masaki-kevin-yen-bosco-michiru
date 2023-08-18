@@ -3,10 +3,12 @@ import { useDebounce } from "@/hooks/useDebounce";
 import { useAutoCompleteFetch } from "@/hooks/useAutoCompleteFetch";
 import { addToFridge } from "@/store/slicers/myFridge";
 import { useDispatch, useSelector } from "react-redux";
+import styled from "styled-components";
 
 const MyFridgeSearch = () => {
     const [input, setInput] = useState("");
     const dispatch = useDispatch();
+    const items = useSelector((state) => state.fridge);
 
     //why using ref? and not just the normal variable?
     //it's because varibale changes on every render and ref doesn't change on redering
@@ -16,8 +18,12 @@ const MyFridgeSearch = () => {
 
     const handleAddClick = () => {
         if (input) {
-            dispatch(addToFridge(input));
-            setInput("");
+            if (items.includes(input)) {
+                window.alert("This item already exists in the fridge!");
+            } else {
+                dispatch(addToFridge(input));
+                setInput("");
+            }
         }
     };
 
@@ -41,30 +47,70 @@ const MyFridgeSearch = () => {
         setInput(item);
     };
 
+    //Style
+    const InputBar = styled.input`
+        border-radius: 5px;
+        font-size: 15px;
+        padding: 10px;
+        margin: 0 10px;
+        border: 1px solid;
+    `;
+
+    const AddButton = styled.button`
+        padding: 10px 15px;
+        font-size: 15px;
+        border-radius: 5px;
+        background-color: black;
+        border: none;
+        color: white;
+        cursor: pointer;
+    `;
+
+    const AutoCompleteDropdown = styled.div`
+        display: flex;
+        flex-direction: column;
+        border: 1px solid none;
+        border-radius: 5px;
+        margin: 0 10px;
+        max-height: 150px;
+        overflow-y: auto;
+        position: absolute;
+    `;
+
+    const AutoCompleteBtn = styled.button`
+        width: 177px;
+        font-size: 15px;
+        padding: 5px;
+        margin: 0;
+        background: #ccc;
+        border: 1px solid black;
+        cursor: pointer;
+    `;
+
     return (
         <div>
-            <input
+            <InputBar
                 type="text"
                 value={input}
                 onChange={handleInputChange}
                 id="inputIngredients"
                 placeholder="Search"
-            ></input>
+            ></InputBar>
 
             {input && autoComplete.length > 0 && (
-                <>
+                <AutoCompleteDropdown>
                     {autoComplete.map((item, index) => (
-                        <button
+                        <AutoCompleteBtn
                             onClick={() => handleAutoCompleteClick(item)}
                             key={index}
                         >
                             {item}
-                        </button>
+                        </AutoCompleteBtn>
                     ))}
-                </>
+                </AutoCompleteDropdown>
             )}
 
-            <button onClick={handleAddClick}>Add</button>
+            <AddButton onClick={handleAddClick}>Add</AddButton>
         </div>
     );
 };
