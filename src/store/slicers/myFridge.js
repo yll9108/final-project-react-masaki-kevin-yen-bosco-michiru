@@ -17,7 +17,7 @@ export const myFridgeSlice = createSlice({
     },
     removeFromFridge: (state, action) => {
       state.items = state.items.filter(
-        (item) => item.id !== action.payload.itemId //filter by ID or name not sure yet
+        (item) => item !== action.payload
       )
       localStorage.setItem('fridgeItem', JSON.stringify(state.items))
     },
