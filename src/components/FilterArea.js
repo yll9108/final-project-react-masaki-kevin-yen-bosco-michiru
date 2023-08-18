@@ -47,6 +47,21 @@ const availableDiet = [
     "Whole30",
 ];
 
+const availableIntolerances = [
+    "Dairy",
+    "Egg",
+    "Gluten",
+    "Grain",
+    "Peanut",
+    "Seafood",
+    "Sesame",
+    "Shellfish",
+    "Soy",
+    "Sulfite",
+    "Tree Nut",
+    "Wheat",
+];
+
 export default function FilterArea({ setRecipes }) {
     const [selectedCuisines, setSelectedCuisines] = useState([]);
     // const [recipes, setRecipes] = useState([]);
