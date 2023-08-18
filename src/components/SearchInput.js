@@ -9,13 +9,13 @@ function SearchInput({ setRecipes }) {
   }
 
   const handleOnClick = async () => {
-    await axiosInstance
-      .get(
-        `recipes/complexSearch?apiKey=${process.env.NEXT_PUBLIC_SPOONACULAR_APIKEY}&fillIngredients=true&query=${searchString}&number=12`
-      )
-      .then((res) => setRecipes(res.data.results))
-
-      .catch((err) => console.log(err))
+    // await axiosInstance
+    //   .get(
+    //     `recipes/complexSearch?apiKey=${process.env.NEXT_PUBLIC_SPOONACULAR_APIKEY}&fillIngredients=true&query=${searchString}&number=12`
+    //   )
+    //   .then((res) => setRecipes(res.data.results))
+    //   .catch((err) => console.log(err))
+    //ここでdispatch
   }
 
   return (

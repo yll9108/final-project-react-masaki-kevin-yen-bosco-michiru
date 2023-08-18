@@ -16,8 +16,11 @@ export const useFetch = (setRecipes) => {
   const filterIntolerance = useSelector((state) =>
     state.search.filterIntolerance.join(',')
   )
+
+  const hasChanged = useSelector((state) => state.search.hasChanged)
+
   useEffect(() => {
-    console.log(myFridgeIngredients)
+    if (!hasChanged) return
     const fetchData = async () => {
       await axiosInstance
         .get(
@@ -28,6 +31,7 @@ export const useFetch = (setRecipes) => {
     }
     fetchData()
   }, [
+    hasChanged,
     myFridgeIngredients,
     searchRecipe,
     filterCuisine,

@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
   myFridgeIngredients: [],
@@ -6,20 +6,27 @@ const initialState = {
   filterCuisine: [],
   filterDiet: [],
   filterIntolerance: [],
-};
+  //初回はuseFetchのfetchDataを呼び出さないためのstate
+  hasChanged: false,
+}
 
 export const searchSlice = createSlice({
-  name: "search",
+  name: 'search',
   initialState,
   reducers: {
     addmyFridgeIngredients: (state, action) => {
-      state.myFridgeIngredients.push(action.payload);
+      state.myFridgeIngredients.push(action.payload)
+      state.hasChanged = true
     },
     removemyFridgeIngredients: (state, action) => {
-      state.myFridgeIngredients = state.myFridgeIngredients.filter((item) => item !== action.payload);
+      state.myFridgeIngredients = state.myFridgeIngredients.filter(
+        (item) => item !== action.payload
+      )
+      state.hasChanged = true
     },
   },
-});
+})
 
-export const { addmyFridgeIngredients, removemyFridgeIngredients } = searchSlice.actions;
-export default searchSlice.reducer;
+export const { addmyFridgeIngredients, removemyFridgeIngredients } =
+  searchSlice.actions
+export default searchSlice.reducer
