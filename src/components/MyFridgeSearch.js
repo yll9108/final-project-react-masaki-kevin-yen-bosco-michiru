@@ -95,6 +95,7 @@ const MyFridgeSearch = () => {
                 onChange={handleInputChange}
                 id="inputIngredients"
                 placeholder="Search"
+                autoFocus
             ></InputBar>
 
             {input && autoComplete.length > 0 && (
