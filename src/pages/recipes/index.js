@@ -46,7 +46,7 @@ export default function Recipes({ initialRecipes }) {
             <div>Recipes</div>
             <MyFridge />
             <SearchInput setRecipes={setRecipes} />
-            <FilterArea />
+            <FilterArea setRecipes={setRecipes} />
             <RecipesList recipes={recipes} />
             <MyRecipes />
         </>

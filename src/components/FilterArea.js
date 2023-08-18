@@ -34,9 +34,9 @@ const availableCuisines = [
     "Vietnamese",
 ];
 
-export default function FilterArea() {
+export default function FilterArea({ setRecipes }) {
     const [selectedCuisines, setSelectedCuisines] = useState([]);
-    const [recipes, setRecipes] = useState([]);
+    // const [recipes, setRecipes] = useState([]);
 
     useEffect(() => {
         // 在选中的复选框内容发生变化时，执行获取食谱的操作
@@ -45,7 +45,7 @@ export default function FilterArea() {
                 const response = await axios.get(
                     `https://api.spoonacular.com/recipes/complexSearch?apiKey=${
                         process.env.NEXT_PUBLIC_SPOONACULAR_APIKEY
-                    }&cuisine=${selectedCuisines.join(",")}&number=5`
+                    }&cuisine=${selectedCuisines.join(",")}&number=10`
                 );
                 setRecipes(response.data.results);
             } catch (error) {
@@ -87,10 +87,10 @@ export default function FilterArea() {
                 <h3>DIET</h3>
                 <h3>INTOLERENCES</h3>
             </div>
-            <div>
+            {/* <div>
                 <h2>Recipes</h2>
                 <RecipeList recipes={recipes} />
-            </div>
+            </div> */}
             {/* for testing */}
         </>
     );
