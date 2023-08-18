@@ -26,4 +26,4 @@ const MyFridgeItems = () => {
   );
 };
 
-export default MyFridgeItems;
+export default React.memo(MyFridgeItems);

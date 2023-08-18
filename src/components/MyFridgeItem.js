@@ -13,9 +13,9 @@ const MyFridgeItem = ({ item }) => {
   };
   const handleCheckBox = () => {
     if (!isChecked) {
-        dispatch(addmyFridgeIngredients(item));
+      dispatch(addmyFridgeIngredients(item));
     } else {
-        dispatch(removemyFridgeIngredients(item));
+      dispatch(removemyFridgeIngredients(item));
     }
     setIsChecked(!isChecked);
   };
