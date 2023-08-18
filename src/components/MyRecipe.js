@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
-import { useSelector } from 'react-redux';
-import { useDispatch } from 'react-redux';
-import { removeFromMyRecipes } from '@/store/slicers/myReceips';
+import React from 'react'
+import { useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
+import { removeFromMyRecipes } from '@/store/slicers/myReceips'
 
 function MyRecipes() {
     const myRecipes = useSelector(state => state.recipes.recipes);
@@ -46,4 +46,4 @@ function MyRecipes() {
     );
 }
 
-export default MyRecipes;
+export default MyRecipes
