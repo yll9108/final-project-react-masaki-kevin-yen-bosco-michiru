@@ -8,7 +8,7 @@ import styled from "styled-components";
 const MyFridgeSearch = () => {
     const [input, setInput] = useState("");
     const dispatch = useDispatch();
-    const items = useSelector((state) => state.fridge);
+    const items = useSelector((state) => state.fridge.items);
 
     //why using ref? and not just the normal variable?
     //it's because varibale changes on every render and ref doesn't change on redering

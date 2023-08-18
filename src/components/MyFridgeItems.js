@@ -4,7 +4,7 @@ import { removeFromFridge } from "@/store/slicers/myFridge";
 import styled from "styled-components";
 
 const MyFridgeItems = () => {
-    const items = useSelector((state) => state.fridge);
+    const items = useSelector((state) => state.fridge.items);
     const dispatch = useDispatch();
 
     const handleDelete = (index) => {
