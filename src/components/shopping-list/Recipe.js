@@ -7,7 +7,7 @@ function Recipe({ recipe, setSelectedRecipe }) {
   const dispatch = useDispatch();
 
   const remove = (recipe) => {
-    dispatch(removeFromMyRecipes(recipe));
+    dispatch(removeFromMyRecipes(recipe.id));
     setSelectedRecipe(null);
   };
 

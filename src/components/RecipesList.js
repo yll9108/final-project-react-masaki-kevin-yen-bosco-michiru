@@ -11,7 +11,7 @@ function RecipesList({ recipes }) {
 
   return (
     <div>
-      {recipes.map((recipe) => {
+      {recipes&&recipes.map((recipe) => {
         return (
           <li key={recipe.id}>
             <h3>{recipe.title}</h3>

@@ -5,6 +5,7 @@ import { useState } from 'react'
 import RecipesList from '@/components/RecipesList'
 import MyFridge from '@/components/MyFridge'
 import { axiosInstance } from '@/axios'
+import MyRecipes from '@/components/MyRecipe'
 
 export const getStaticProps = async () => {
   try {
@@ -37,14 +38,12 @@ export default function Recipes({ initialRecipes }) {
       <Head>
         <title>Recipes</title>
       </Head>
-
       <Header />
       <div>Recipes</div>
       <MyFridge />
-
       <SearchInput setRecipes={setRecipes} />
-
       <RecipesList recipes={recipes} />
+      <MyRecipes />
     </>
   )
 }
