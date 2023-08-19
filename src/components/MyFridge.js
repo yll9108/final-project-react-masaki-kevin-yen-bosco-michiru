@@ -7,15 +7,14 @@ export default function MyFridge() {
     const MyFridge = styled.div`
         display: flex;
         flex-direction: column;
-        border: 1px solid black;
+        align-items: center;
         border-radius: 5px;
-        margin: 10px;
-        padding: 0;
+        padding: 0 20px;
     `;
 
     return (
         <MyFridge>
-            <h1>My Fridge</h1>
+            <h2>My Fridge</h2>
             <MyFridgeSearch />
             <MyFridgeItems />
             <p>Selete items to filter the search</p>

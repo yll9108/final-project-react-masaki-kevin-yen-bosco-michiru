@@ -4,6 +4,7 @@ import { useAutoCompleteFetch } from "@/hooks/useAutoCompleteFetch";
 import { addToFridge } from "@/store/slicers/myFridge";
 import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
+import { FaSearch } from "react-icons/fa";
 
 const MyFridgeSearch = () => {
     const [input, setInput] = useState("");
@@ -48,10 +49,20 @@ const MyFridgeSearch = () => {
     };
 
     //Style
+    const SreachBar = styled.div`
+        display: flex;
+        flex-direction: row;
+    `;
+
+    const InputArea = styled.div`
+        /* text-align: left; */
+    `;
+
     const InputBar = styled.input`
         border-radius: 5px;
         font-size: 15px;
         padding: 10px;
+        padding-left: 30px;
         margin: 0 10px;
         border: 1px solid;
     `;
@@ -69,16 +80,18 @@ const MyFridgeSearch = () => {
     const AutoCompleteDropdown = styled.div`
         display: flex;
         flex-direction: column;
-        border: 1px solid none;
+        border: none;
         border-radius: 5px;
         margin: 0 10px;
-        max-height: 150px;
+        max-height: 200px;
         overflow-y: auto;
         position: absolute;
+        top: 177px;
+        left: 44px;
     `;
 
     const AutoCompleteBtn = styled.button`
-        width: 177px;
+        width: 197px;
         font-size: 15px;
         padding: 5px;
         margin: 0;
@@ -88,14 +101,24 @@ const MyFridgeSearch = () => {
     `;
 
     return (
-        <div>
-            <InputBar
-                type="text"
-                value={input}
-                onChange={handleInputChange}
-                id="inputIngredients"
-                placeholder="Search"
-            ></InputBar>
+        <SreachBar>
+            <InputArea>
+                <FaSearch
+                    style={{
+                        position: "relative",
+                        left: "35px",
+                        top: "2.5px",
+                        color: "gray",
+                    }}
+                />
+                <InputBar
+                    type="text"
+                    value={input}
+                    onChange={handleInputChange}
+                    id="inputIngredients"
+                    placeholder="Search ingredients"
+                ></InputBar>
+            </InputArea>
 
             {input && autoComplete.length > 0 && (
                 <AutoCompleteDropdown>
@@ -111,7 +134,7 @@ const MyFridgeSearch = () => {
             )}
 
             <AddButton onClick={handleAddClick}>Add</AddButton>
-        </div>
+        </SreachBar>
     );
 };
 
