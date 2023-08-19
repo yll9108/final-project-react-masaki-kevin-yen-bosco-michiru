@@ -6,12 +6,13 @@ import RecipesList from '@/components/RecipesList'
 import MyFridge from '@/components/MyFridge'
 import { axiosInstance } from '@/axios'
 import MyRecipes from '@/components/MyRecipe'
+import { useFetch } from '@/hooks/useFetch'
 
 export const getStaticProps = async () => {
   try {
     const initialRecipes = await axiosInstance
       .get(
-        `recipes/complexSearch?apiKey=${process.env.NEXT_PUBLIC_SPOONACULAR_APIKEY}&number=2&fillIngredients=true`
+        `recipes/complexSearch?apiKey=${process.env.NEXT_PUBLIC_SPOONACULAR_APIKEY}&number=3&fillIngredients=true`
       )
       .then((res) => res.data.results)
 
@@ -32,6 +33,8 @@ export const getStaticProps = async () => {
 
 export default function Recipes({ initialRecipes }) {
   const [recipes, setRecipes] = useState(initialRecipes)
+  console.log(recipes)
+  useFetch(setRecipes)
 
   return (
     <>
