@@ -17,7 +17,7 @@ export default function MyFridge() {
             <h2>My Fridge</h2>
             <MyFridgeSearch />
             <MyFridgeItems />
-            <p>Selete items to filter the search</p>
+            <p style={{ margin: "0" }}>Selete items to filter the search</p>
         </MyFridge>
     );
 }
