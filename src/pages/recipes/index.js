@@ -45,6 +45,7 @@ export default function Recipes({ initialRecipes }) {
         display: flex;
         flex-direction: column;
         justify-content: center;
+        align-items: center;
     `;
 
     return (
