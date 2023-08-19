@@ -1,17 +1,19 @@
-import React, { useState,useEffect } from 'react';
-import { useSelector } from 'react-redux';
-import { useDispatch } from 'react-redux'
-import { removeFromMyRecipes } from '@/store/slicers/myReceips'
+import React, { useState, useEffect } from "react";
+import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import { removeFromMyRecipes } from "@/store/slicers/myReceips";
+import { styled } from "styled-components";
+import { TiDelete } from "react-icons/ti";
 
 function MyRecipes() {
-    const myRecipes = useSelector(state => state.recipes.recipes);
-    const dispatch = useDispatch()
+    const myRecipes = useSelector((state) => state.recipes.recipes);
+    const dispatch = useDispatch();
     const [selectedImage, setSelectedImage] = useState(null);
     const [showImage, setShowImage] = useState(false);
 
     const handleOnClick = (recipeId) => {
-      dispatch(removeFromMyRecipes(recipeId))
-    } 
+        dispatch(removeFromMyRecipes(recipeId));
+    };
     const toggleImage = (recipeId, recipeImage) => {
         if (selectedImage === recipeImage) {
             setSelectedImage(null);
@@ -19,35 +21,80 @@ function MyRecipes() {
         } else {
             setSelectedImage(recipeImage);
             setShowImage(true);
-        }}
-    console.log(myRecipes)
+        }
+    };
+    console.log(myRecipes);
     useEffect(() => {
-    
-        console.log('MyRecipes has changed:', myRecipes);
+        console.log("MyRecipes has changed:", myRecipes);
     }, [myRecipes]);
- 
 
-    
+    //Style
+    const MyRecipes = styled.div`
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    `;
+
+    const MyRecipesUl = styled.ul`
+        font-size: 15px;
+        list-style-type: none;
+        padding: 20px;
+        margin: 0;
+    `;
+
+    const MyRecipesLi = styled.li`
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        border-bottom: 1px solid;
+        width: 500px;
+        margin: 10px 0;
+    `;
+
+    const MyRecipesRemoveBtn = styled.button`
+        font-size: 15px;
+        margin: 5px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        outline: none;
+    `;
+
     return (
-        <div>
+        <MyRecipes>
             <h2>My Recipes</h2>
-            <ul>
-                {myRecipes && myRecipes.map((recipe, index) => (
-                    <li key={index}>
-                        <h3>{recipe.title}</h3>
-                        <button onClick={() => handleOnClick(recipe.id)}>Remove</button>
-                        <button onClick={() => toggleImage(recipe.id, recipe.image)}>
-                            {showImage && selectedImage === recipe.image ? 'Hide' : 'Show'}
-                        </button>
-                        {showImage && selectedImage === recipe.image && (
-                            <div>
-                                <img src={selectedImage} alt={recipe.title} />
-                            </div>
-                        )}
-                    </li>
-                ))}
-            </ul>
-        </div>
+            <MyRecipesUl>
+                {myRecipes &&
+                    myRecipes.map((recipe, index) => (
+                        <MyRecipesLi key={index}>
+                            <p>{recipe.title}</p>
+
+                            <button
+                                onClick={() =>
+                                    toggleImage(recipe.id, recipe.image)
+                                }
+                            >
+                                {showImage && selectedImage === recipe.image
+                                    ? "Hide"
+                                    : "Show"}
+                            </button>
+                            <MyRecipesRemoveBtn
+                                onClick={() => handleOnClick(recipe.id)}
+                            >
+                                <TiDelete size={25} />
+                            </MyRecipesRemoveBtn>
+                            {showImage && selectedImage === recipe.image && (
+                                <div>
+                                    <img
+                                        src={selectedImage}
+                                        alt={recipe.title}
+                                    />
+                                </div>
+                            )}
+                        </MyRecipesLi>
+                    ))}
+            </MyRecipesUl>
+        </MyRecipes>
     );
 }
 
