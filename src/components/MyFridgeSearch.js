@@ -4,12 +4,15 @@ import { useAutoCompleteFetch } from "@/hooks/useAutoCompleteFetch";
 import { addToFridge } from "@/store/slicers/myFridge";
 import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
+import { useFetch } from "@/hooks/useFetch";
 import { FaSearch } from "react-icons/fa";
 
 const MyFridgeSearch = () => {
     const [input, setInput] = useState("");
     const dispatch = useDispatch();
     const items = useSelector((state) => state.fridge.items);
+
+    //   useFetch(setRecipes)
 
     //why using ref? and not just the normal variable?
     //it's because varibale changes on every render and ref doesn't change on redering

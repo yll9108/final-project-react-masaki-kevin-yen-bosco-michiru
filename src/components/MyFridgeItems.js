@@ -1,17 +1,22 @@
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { removeFromFridge } from "@/store/slicers/myFridge";
+import { useSelector } from "react-redux";
 import styled from "styled-components";
 import { FaDeleteLeft } from "react-icons/fa6";
 
+import MyFridgeItem from "./MyFridgeItem";
+
 const MyFridgeItems = () => {
-    const items = useSelector((state) => state.fridge.items);
-    const dispatch = useDispatch();
+  const items = useSelector((state) => state.fridge.items);
 
-    const handleDelete = (index) => {
-        dispatch(removeFromFridge(items[index]));
-    };
+  //Style
+  const ItemsUl = styled.ul`
+    font-size: 15px;
+    list-style-type: none;
+    padding: 10px 20px;
+    margin: 0;
+  `;
 
+<<<<<<< HEAD
     //Style
     const ItemsUl = styled.ul`
         font-size: 15px;
@@ -54,6 +59,17 @@ const MyFridgeItems = () => {
             </div>
         </div>
     );
+=======
+  return (
+    <div>
+      <ItemsUl>
+        {items.map((data, index) => (
+          <MyFridgeItem key={index} item={data} />
+        ))}
+      </ItemsUl>
+    </div>
+  );
+>>>>>>> main
 };
 
-export default MyFridgeItems;
+export default React.memo(MyFridgeItems);
