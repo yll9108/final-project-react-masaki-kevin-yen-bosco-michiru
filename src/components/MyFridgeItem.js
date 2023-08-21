@@ -1,12 +1,13 @@
 import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { removeFromFridge } from "@/store/slicers/myFridge";
 import { addmyFridgeIngredients, removemyFridgeIngredients } from "@/store/slicers/search";
 import styled from "styled-components";
 import { FaDeleteLeft } from "react-icons/fa6";
 
 const MyFridgeItem = ({ item }) => {
-  const [isChecked, setIsChecked] = useState(false);
+  const items = useSelector((state) => state.search.myFridgeIngredients);
+  const [isChecked, setIsChecked] = useState(items.includes(item));
   const dispatch = useDispatch();
 
   const handleDelete = () => {
