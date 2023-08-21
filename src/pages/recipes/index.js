@@ -7,12 +7,15 @@ import MyFridge from "@/components/MyFridge";
 import { axiosInstance } from "@/axios";
 import MyRecipes from "@/components/MyRecipe";
 import FilterArea from "@/components/FilterArea";
+import  styled  from "styled-components";
+import { useFetch } from "@/hooks/useFetch";
+
 
 export const getStaticProps = async () => {
     try {
         const initialRecipes = await axiosInstance
             .get(
-                `recipes/complexSearch?apiKey=${process.env.NEXT_PUBLIC_SPOONACULAR_APIKEY}&number=2&fillIngredients=true`
+                `recipes/complexSearch?apiKey=${process.env.NEXT_PUBLIC_SPOONACULAR_APIKEY}&number=3&fillIngredients=true`
             )
             .then((res) => res.data.results);
 
@@ -34,18 +37,39 @@ export const getStaticProps = async () => {
 export default function Recipes({ initialRecipes }) {
     const [recipes, setRecipes] = useState(initialRecipes);
 
+    //Style
+    const RecipesPage = styled.div`
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    `;
+
+    const RecipesListArea = styled.div`
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    `;
+    console.log(recipes);
+    useFetch(setRecipes);
+
+
     return (
         <>
             <Head>
                 <title>Recipes</title>
             </Head>
             <Header />
-            <div>Recipes</div>
-            <MyFridge />
-            <SearchInput setRecipes={setRecipes} />
-            <FilterArea setRecipes={setRecipes} />
-            <RecipesList recipes={recipes} />
-            <MyRecipes />
+
+            <RecipesPage>
+                <MyFridge />
+                <RecipesListArea>
+                    <SearchInput setRecipes={setRecipes} />
+                    <FilterArea setRecipes={setRecipes} />
+                    <RecipesList recipes={recipes} />
+                </RecipesListArea>
+                <MyRecipes />
+            </RecipesPage>
         </>
     );
 }

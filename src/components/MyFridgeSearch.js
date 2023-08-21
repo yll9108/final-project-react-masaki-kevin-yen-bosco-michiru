@@ -4,11 +4,15 @@ import { useAutoCompleteFetch } from "@/hooks/useAutoCompleteFetch";
 import { addToFridge } from "@/store/slicers/myFridge";
 import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
+import { useFetch } from "@/hooks/useFetch";
+import { FaSearch } from "react-icons/fa";
 
 const MyFridgeSearch = () => {
     const [input, setInput] = useState("");
     const dispatch = useDispatch();
     const items = useSelector((state) => state.fridge.items);
+
+    //   useFetch(setRecipes)
 
     //why using ref? and not just the normal variable?
     //it's because varibale changes on every render and ref doesn't change on redering
@@ -48,10 +52,28 @@ const MyFridgeSearch = () => {
     };
 
     //Style
+    const SreachBar = styled.div`
+        display: flex;
+        flex-direction: row;
+    `;
+
+    const InputArea = styled.div`
+        display: flex;
+        text-align: left;
+    `;
+
+    const SearchImg = styled(FaSearch)`
+        position: relative;
+        left: 35px;
+        top: 11px;
+        color: gray;
+    `;
+
     const InputBar = styled.input`
         border-radius: 5px;
         font-size: 15px;
         padding: 10px;
+        padding-left: 30px;
         margin: 0 10px;
         border: 1px solid;
     `;
@@ -69,16 +91,18 @@ const MyFridgeSearch = () => {
     const AutoCompleteDropdown = styled.div`
         display: flex;
         flex-direction: column;
-        border: 1px solid none;
+        border: none;
         border-radius: 5px;
         margin: 0 10px;
-        max-height: 150px;
+        max-height: 200px;
         overflow-y: auto;
         position: absolute;
+        top: 209px;
+        left: 37px;
     `;
 
     const AutoCompleteBtn = styled.button`
-        width: 177px;
+        width: 197px;
         font-size: 15px;
         padding: 5px;
         margin: 0;
@@ -88,14 +112,18 @@ const MyFridgeSearch = () => {
     `;
 
     return (
-        <div>
-            <InputBar
-                type="text"
-                value={input}
-                onChange={handleInputChange}
-                id="inputIngredients"
-                placeholder="Search"
-            ></InputBar>
+        <SreachBar>
+            <InputArea>
+                <SearchImg />
+                <InputBar
+                    type="text"
+                    value={input}
+                    onChange={handleInputChange}
+                    id="inputIngredients"
+                    placeholder="Search ingredients"
+                    autoFocus
+                ></InputBar>
+            </InputArea>
 
             {input && autoComplete.length > 0 && (
                 <AutoCompleteDropdown>
@@ -111,7 +139,7 @@ const MyFridgeSearch = () => {
             )}
 
             <AddButton onClick={handleAddClick}>Add</AddButton>
-        </div>
+        </SreachBar>
     );
 };
 
