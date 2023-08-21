@@ -55,7 +55,8 @@ const MyFridgeSearch = () => {
     `;
 
     const InputArea = styled.div`
-        /* text-align: left; */
+        display: flex;
+        text-align: left;
     `;
 
     const InputBar = styled.input`
@@ -86,7 +87,7 @@ const MyFridgeSearch = () => {
         max-height: 200px;
         overflow-y: auto;
         position: absolute;
-        top: 177px;
+        top: 185px;
         left: 44px;
     `;
 
@@ -107,7 +108,7 @@ const MyFridgeSearch = () => {
                     style={{
                         position: "relative",
                         left: "35px",
-                        top: "2.5px",
+                        top: "11px",
                         color: "gray",
                     }}
                 />

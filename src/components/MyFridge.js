@@ -8,7 +8,6 @@ export default function MyFridge() {
         display: flex;
         flex-direction: column;
         align-items: center;
-        border-radius: 5px;
         padding: 0 20px;
     `;
 
