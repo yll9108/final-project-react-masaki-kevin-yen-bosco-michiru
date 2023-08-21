@@ -2,15 +2,17 @@ import React from 'react'
 import { useSelector } from 'react-redux'
 
 function ItemsToBuy({ recipe }) {
-  const myFridgeItems = useSelector((state) => state.fridge)
+  const myFridgeItems = useSelector((state) => state.fridge.items)
+  const searchedItems = useSelector((state) => state.search.myFridgeIngredients)
 
   //take out the ingredients and put into an array
-  const requiredIngredients = []
+  const missedIngredients = []
   recipe?.missedIngredients?.map((ingredient) => {
-    requiredIngredients.push(ingredient.name)
+    missedIngredients.push(ingredient.name)
   })
 
-  console.log(requiredIngredients)
+  //combine searchedItems and missedIngredients
+  const requiredIngredients = missedIngredients.concat(searchedItems)
 
   //find missing ingredients
   const missingIngredients = requiredIngredients.filter(
