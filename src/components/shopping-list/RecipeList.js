@@ -1,6 +1,6 @@
 import React from "react";
 import Recipe from "./Recipe";
-import { styled } from "styled-components";
+import styled from "styled-components";
 
 function RecipeList({ recipes, setSelectedRecipe }) {
     //Style

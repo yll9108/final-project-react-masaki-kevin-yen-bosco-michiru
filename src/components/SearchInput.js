@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { axiosInstance } from "@/axios";
-import { styled } from "styled-components";
+import styled from "styled-components";
 import { FaSearch } from "react-icons/fa";
 
 function SearchInput({ setRecipes }) {
