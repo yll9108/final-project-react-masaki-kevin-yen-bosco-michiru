@@ -6,8 +6,10 @@ import RecipesList from "@/components/RecipesList";
 import MyFridge from "@/components/MyFridge";
 import { axiosInstance } from "@/axios";
 import MyRecipes from "@/components/MyRecipe";
-import { styled } from "styled-components";
+import FilterArea from "@/components/FilterArea";
+import  styled  from "styled-components";
 import { useFetch } from "@/hooks/useFetch";
+
 
 export const getStaticProps = async () => {
     try {
@@ -51,16 +53,19 @@ export default function Recipes({ initialRecipes }) {
     console.log(recipes);
     useFetch(setRecipes);
 
+
     return (
         <>
             <Head>
                 <title>Recipes</title>
             </Head>
             <Header />
+
             <RecipesPage>
                 <MyFridge />
                 <RecipesListArea>
                     <SearchInput setRecipes={setRecipes} />
+                    <FilterArea setRecipes={setRecipes} />
                     <RecipesList recipes={recipes} />
                 </RecipesListArea>
                 <MyRecipes />
