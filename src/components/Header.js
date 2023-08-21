@@ -19,7 +19,8 @@ function Header() {
     `;
 
     const CompanyName = styled.h1`
-        margin: 0 20px;
+        font-size: 40px;
+        margin: 20px;
     `;
 
     const HeaderUl = styled.ul`
@@ -30,11 +31,14 @@ function Header() {
     `;
 
     const HeaderLi = styled.li`
+        font-size: 20px;
         margin: 0 10px;
         cursor: pointer;
     `;
 
     const LoginBtn = styled.button`
+        font-size: 20px;
+        font-weight: bold;
         margin: 0 20px;
         background: none;
         border: none;
@@ -43,6 +47,8 @@ function Header() {
     `;
 
     const LogoutBtn = styled.button`
+        font-size: 20px;
+        font-weight: bold;
         margin: 0 20px;
         background: none;
         border: none;

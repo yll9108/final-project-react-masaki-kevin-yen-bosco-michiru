@@ -31,6 +31,9 @@ function Recipe({ recipe, setSelectedRecipe }) {
     `;
 
     const RecipesTitle = styled.p`
+        display: flex;
+        justify-content: center;
+        align-items: center;
         margin: 0;
         font-size: 20px;
     `;

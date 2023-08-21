@@ -35,6 +35,11 @@ function MyRecipes() {
         align-items: center;
     `;
 
+    const MyRecipesTitle = styled.h2`
+        font-size: 30px;
+        margin: 20px;
+    `;
+
     const MyRecipesUl = styled.ul`
         font-size: 15px;
         list-style-type: none;
@@ -51,6 +56,12 @@ function MyRecipes() {
         margin: 10px 0;
     `;
 
+    const MyRecipesListTitle = styled.p`
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    `;
+
     const MyRecipesRemoveBtn = styled.button`
         font-size: 15px;
         margin: 5px;
@@ -62,12 +73,14 @@ function MyRecipes() {
 
     return (
         <MyRecipes>
-            <h2>My Recipes</h2>
+            <MyRecipesTitle>My Recipes</MyRecipesTitle>
             <MyRecipesUl>
                 {myRecipes &&
                     myRecipes.map((recipe, index) => (
                         <MyRecipesLi key={index}>
-                            <p>{recipe.title}</p>
+                            <MyRecipesListTitle>
+                                {recipe.title}
+                            </MyRecipesListTitle>
 
                             <button
                                 onClick={() =>

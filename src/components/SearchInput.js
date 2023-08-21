@@ -36,6 +36,13 @@ function SearchInput({ setRecipes }) {
         width: 300px;
     `;
 
+    const SearchImg = styled(FaSearch)`
+        position: relative;
+        left: 35px;
+        top: 10.5px;
+        color: gray;
+    `;
+
     const SearchBtn = styled.button`
         padding: 10px 15px;
         font-size: 15px;
@@ -48,14 +55,7 @@ function SearchInput({ setRecipes }) {
 
     return (
         <SearchBar>
-            <FaSearch
-                style={{
-                    position: "relative",
-                    left: "35px",
-                    top: "10.5px",
-                    color: "gray",
-                }}
-            />
+            <SearchImg />
             <InputBar
                 onChange={(e) => handleOnChange(e)}
                 placeholder="Search recipes"

@@ -59,6 +59,13 @@ const MyFridgeSearch = () => {
         text-align: left;
     `;
 
+    const SearchImg = styled(FaSearch)`
+        position: relative;
+        left: 35px;
+        top: 11px;
+        color: gray;
+    `;
+
     const InputBar = styled.input`
         border-radius: 5px;
         font-size: 15px;
@@ -87,8 +94,8 @@ const MyFridgeSearch = () => {
         max-height: 200px;
         overflow-y: auto;
         position: absolute;
-        top: 185px;
-        left: 44px;
+        top: 209px;
+        left: 37px;
     `;
 
     const AutoCompleteBtn = styled.button`
@@ -104,14 +111,7 @@ const MyFridgeSearch = () => {
     return (
         <SreachBar>
             <InputArea>
-                <FaSearch
-                    style={{
-                        position: "relative",
-                        left: "35px",
-                        top: "11px",
-                        color: "gray",
-                    }}
-                />
+                <SearchImg />
                 <InputBar
                     type="text"
                     value={input}

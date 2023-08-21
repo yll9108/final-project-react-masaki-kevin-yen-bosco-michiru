@@ -14,6 +14,7 @@ function RecipesList({ recipes }) {
     const RecipesList = styled.div`
         display: flex;
         flex-direction: row;
+        flex-wrap: wrap;
         margin: 20px;
     `;
 
@@ -33,14 +34,18 @@ function RecipesList({ recipes }) {
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        width: 200px;
+        height: 300px;
     `;
 
     const RecipesTitle = styled.p`
-        font-size: 10px;
+        font-size: 15px;
+        margin: 5px;
     `;
 
     const AddBtn = styled.button`
         padding: 10px 15px;
+        margin-top: 10px;
         font-size: 15px;
         border-radius: 5px;
         background-color: black;
