@@ -1,32 +1,35 @@
-import { useState } from 'react'
-import { useDispatch } from 'react-redux'
-import { removeFromFridge } from '@/store/slicers/myFridge'
-import {
-  addmyFridgeIngredients,
-  removemyFridgeIngredients,
-} from '@/store/slicers/search'
-import styled from 'styled-components'
+import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { removeFromFridge } from "@/store/slicers/myFridge";
+import { addmyFridgeIngredients, removemyFridgeIngredients } from "@/store/slicers/search";
+import styled from "styled-components";
+import { FaDeleteLeft } from "react-icons/fa6";
 
 const MyFridgeItem = ({ item }) => {
-  const [isChecked, setIsChecked] = useState(false)
-  const dispatch = useDispatch()
+  const [isChecked, setIsChecked] = useState(false);
+  const dispatch = useDispatch();
 
   const handleDelete = () => {
-    dispatch(removeFromFridge(item))
-  }
+    dispatch(removeFromFridge(item));
+  };
   const handleCheckBox = () => {
     if (!isChecked) {
-      dispatch(addmyFridgeIngredients(item))
+      dispatch(addmyFridgeIngredients(item));
     } else {
-      dispatch(removemyFridgeIngredients(item))
+      dispatch(removemyFridgeIngredients(item));
     }
-    setIsChecked(!isChecked)
-  }
+    setIsChecked(!isChecked);
+  };
 
   //Style
   const ItemsLi = styled.li`
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-bottom: 1px solid;
+    width: 200px;
     margin: 10px 0;
-  `
+  `;
 
   const DeleteBtn = styled.button`
     font-size: 15px;
@@ -35,21 +38,19 @@ const MyFridgeItem = ({ item }) => {
     border: none;
     cursor: pointer;
     outline: none;
-  `
+  `;
 
   return (
     <div>
       <ItemsLi>
-        <input
-          type='checkbox'
-          checked={isChecked}
-          onChange={() => handleCheckBox()}
-        />
+        <input type="checkbox" checked={isChecked} onChange={() => handleCheckBox()} />
         {item}
-        <DeleteBtn onClick={() => handleDelete()}>X</DeleteBtn>
+        <DeleteBtn onClick={() => handleDelete()}>
+          <FaDeleteLeft />
+        </DeleteBtn>
       </ItemsLi>
     </div>
-  )
-}
+  );
+};
 
-export default MyFridgeItem
+export default MyFridgeItem;
