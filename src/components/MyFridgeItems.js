@@ -11,7 +11,7 @@ const MyFridgeItems = () => {
   const ItemsUl = styled.ul`
     font-size: 15px;
     list-style-type: none;
-    padding: 10px 20px;
+    padding: 20px;
     margin: 0;
   `;
 
