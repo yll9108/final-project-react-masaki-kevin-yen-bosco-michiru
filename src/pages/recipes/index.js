@@ -35,6 +35,7 @@ export const getStaticProps = async () => {
 
 export default function Recipes({ initialRecipes }) {
     const [recipes, setRecipes] = useState(initialRecipes);
+    useFetch(setRecipes);
 
     //Style
     const RecipesPage = styled.div`
@@ -73,7 +74,6 @@ export default function Recipes({ initialRecipes }) {
                 <title>Recipes</title>
             </Head>
             <Header />
-
             <RecipesPageDiv>
                 <MyFridge />
                 <RecipesListArea>

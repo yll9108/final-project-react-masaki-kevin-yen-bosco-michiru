@@ -16,7 +16,6 @@ export default function Home() {
         background-position: center center;
         height: 100vh;
         width: 100vw;
-        /* opacity: 0.7; */
     `;
 
     const HomePageDiv = styled.div`

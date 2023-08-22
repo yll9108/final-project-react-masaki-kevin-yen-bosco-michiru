@@ -23,10 +23,6 @@ function MyRecipes() {
             setShowImage(true);
         }
     };
-    console.log(myRecipes);
-    useEffect(() => {
-        console.log("MyRecipes has changed:", myRecipes);
-    }, [myRecipes]);
 
     //Style
     const MyRecipes = styled.div`
