@@ -9,22 +9,36 @@ export default function MyFridge() {
         display: flex;
         flex-direction: column;
         align-items: center;
-        padding: 20px;
         background-color: #6a994e;
         border-radius: 20px;
         margin-left: 20px;
         width: 300px;
     `;
 
+    const MyFrigeTitleDiv = styled.div`
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        background-color: #a3b18a;
+        border-radius: 20px 20px 0 0;
+        width: 300px;
+        height: 70px;
+    `;
+
     const MyFridgeTitle = styled.h2`
         font-size: 30px;
     `;
 
-    const MyFridgeTip = styled.p``;
+    const MyFridgeTip = styled.p`
+        margin-bottom: 20px;
+    `;
 
     return (
         <MyFridge>
-            <MyFridgeTitle>My Fridge</MyFridgeTitle>
+            <MyFrigeTitleDiv>
+                <MyFridgeTitle>My Fridge</MyFridgeTitle>
+            </MyFrigeTitleDiv>
             <MyFridgeSearch />
             <MyFridgeItems />
             <MyFridgeTip>Selete items to filter the search</MyFridgeTip>

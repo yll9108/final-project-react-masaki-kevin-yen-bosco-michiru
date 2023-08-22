@@ -36,7 +36,18 @@ function MyRecipes() {
         background-color: #6a994e;
         border-radius: 20px;
         margin-right: 20px;
-        padding: 20px;
+        width: 300px;
+    `;
+
+    const MyRecipesTitleDiv = styled.div`
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        background-color: #a3b18a;
+        border-radius: 20px 20px 0 0;
+        width: 300px;
+        height: 70px;
     `;
 
     const MyRecipesTitle = styled.h2`
@@ -46,7 +57,7 @@ function MyRecipes() {
     const MyRecipesUl = styled.ul`
         font-size: 15px;
         list-style-type: none;
-        margin-top: 20px;
+        padding: 20px;
     `;
 
     const MyRecipesLi = styled.li`
@@ -54,8 +65,7 @@ function MyRecipes() {
         flex-direction: row;
         justify-content: space-between;
         border-bottom: 1px solid;
-        width: 300px;
-        margin: 10px 0;
+        margin-bottom: 10px;
     `;
 
     const MyRecipesListTitle = styled.p`
@@ -77,7 +87,9 @@ function MyRecipes() {
 
     return (
         <MyRecipes>
-            <MyRecipesTitle>My Recipes</MyRecipesTitle>
+            <MyRecipesTitleDiv>
+                <MyRecipesTitle>My Recipes</MyRecipesTitle>
+            </MyRecipesTitleDiv>
             <MyRecipesUl>
                 {myRecipes &&
                     myRecipes.map((recipe, index) => (

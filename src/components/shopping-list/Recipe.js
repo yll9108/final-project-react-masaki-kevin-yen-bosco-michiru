@@ -21,7 +21,6 @@ function Recipe({ recipe, setSelectedRecipe }) {
     //Style
     const RecipesList = styled.li`
         background-color: #6a994e;
-        /* border: 1px solid black; */
         border-radius: 20px;
         list-style-type: none;
         padding: 20px;
@@ -43,7 +42,7 @@ function Recipe({ recipe, setSelectedRecipe }) {
 
     const RemoveBtn = styled.button`
         font-size: 25px;
-        color: red;
+        color: #bc4749;
         background: none;
         border: none;
         cursor: pointer;

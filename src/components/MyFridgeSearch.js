@@ -57,12 +57,14 @@ const MyFridgeSearch = () => {
         flex-direction: row;
         justify-content: center;
         margin-top: 20px;
+        /* margin-left: 20px;
+        margin-right: 20px; */
     `;
 
     const SearchImg = styled(FaSearch)`
         position: absolute;
-        left: 49px;
-        top: 211px;
+        left: 53px;
+        top: 231px;
         color: #dad7cd;
     `;
 
@@ -74,6 +76,7 @@ const MyFridgeSearch = () => {
         padding-left: 30px;
         margin-right: 10px;
         border: 1px solid #dad7cd;
+        width: 140px;
         ::placeholder {
             color: #dad7cd;
         }

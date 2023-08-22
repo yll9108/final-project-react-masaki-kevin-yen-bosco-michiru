@@ -50,13 +50,14 @@ export default function Recipes({ initialRecipes }) {
         display: flex;
         flex-direction: row;
         justify-content: space-between;
+        align-items: flex-start;
         margin-top: 20px;
     `;
 
     const RecipesListArea = styled.div`
         display: flex;
         flex-direction: column;
-        justify-content: center;
+        justify-content: start;
         align-items: center;
         background-color: #6a994e;
         border-radius: 20px;

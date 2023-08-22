@@ -40,7 +40,7 @@ function SearchInput({ setRecipes }) {
 
     const SearchImg = styled(FaSearch)`
         position: absolute;
-        left: 512px;
+        left: 528px;
         top: 161px;
         color: #dad7cd;
     `;
