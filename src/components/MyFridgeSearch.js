@@ -55,36 +55,37 @@ const MyFridgeSearch = () => {
     const SreachBar = styled.div`
         display: flex;
         flex-direction: row;
-    `;
-
-    const InputArea = styled.div`
-        display: flex;
-        text-align: left;
+        justify-content: center;
+        margin-top: 20px;
     `;
 
     const SearchImg = styled(FaSearch)`
-        position: relative;
-        left: 35px;
-        top: 11px;
-        color: gray;
+        position: absolute;
+        left: 49px;
+        top: 211px;
+        color: #dad7cd;
     `;
 
     const InputBar = styled.input`
         border-radius: 5px;
         font-size: 15px;
+        color: black;
         padding: 10px;
         padding-left: 30px;
-        margin: 0 10px;
-        border: 1px solid;
+        margin-right: 10px;
+        border: 1px solid #dad7cd;
+        ::placeholder {
+            color: #dad7cd;
+        }
     `;
 
     const AddButton = styled.button`
         padding: 10px 15px;
         font-size: 15px;
         border-radius: 5px;
-        background-color: black;
-        border: none;
-        color: white;
+        background-color: #dad7cd;
+        border: 1px solid #dad7cd;
+        color: black;
         cursor: pointer;
     `;
 
@@ -113,17 +114,15 @@ const MyFridgeSearch = () => {
 
     return (
         <SreachBar>
-            <InputArea>
-                <SearchImg />
-                <InputBar
-                    type="text"
-                    value={input}
-                    onChange={handleInputChange}
-                    id="inputIngredients"
-                    placeholder="Search ingredients"
-                    autoFocus
-                ></InputBar>
-            </InputArea>
+            <SearchImg />
+            <InputBar
+                type="text"
+                value={input}
+                onChange={handleInputChange}
+                id="inputIngredients"
+                placeholder="Search ingredients"
+                autoFocus
+            ></InputBar>
 
             {input && autoComplete.length > 0 && (
                 <AutoCompleteDropdown>

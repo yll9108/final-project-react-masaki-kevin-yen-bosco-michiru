@@ -33,18 +33,20 @@ function MyRecipes() {
         display: flex;
         flex-direction: column;
         align-items: center;
+        background-color: #6a994e;
+        border-radius: 20px;
+        margin-right: 20px;
+        padding: 20px;
     `;
 
     const MyRecipesTitle = styled.h2`
         font-size: 30px;
-        margin: 20px;
     `;
 
     const MyRecipesUl = styled.ul`
         font-size: 15px;
         list-style-type: none;
-        padding: 20px;
-        margin: 0;
+        margin-top: 20px;
     `;
 
     const MyRecipesLi = styled.li`
@@ -52,7 +54,7 @@ function MyRecipes() {
         flex-direction: row;
         justify-content: space-between;
         border-bottom: 1px solid;
-        width: 500px;
+        width: 300px;
         margin: 10px 0;
     `;
 
@@ -60,6 +62,8 @@ function MyRecipes() {
         display: flex;
         justify-content: center;
         align-items: center;
+        font-family: "Lobster", "Poppins";
+        font-size: 15px;
     `;
 
     const MyRecipesRemoveBtn = styled.button`
@@ -81,16 +85,6 @@ function MyRecipes() {
                             <MyRecipesListTitle>
                                 {recipe.title}
                             </MyRecipesListTitle>
-
-                            <button
-                                onClick={() =>
-                                    toggleImage(recipe.id, recipe.image)
-                                }
-                            >
-                                {showImage && selectedImage === recipe.image
-                                    ? "Hide"
-                                    : "Show"}
-                            </button>
                             <MyRecipesRemoveBtn
                                 onClick={() => handleOnClick(recipe.id)}
                             >

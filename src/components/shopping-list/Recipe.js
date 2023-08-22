@@ -20,7 +20,9 @@ function Recipe({ recipe, setSelectedRecipe }) {
 
     //Style
     const RecipesList = styled.li`
-        border: 1px solid black;
+        background-color: #6a994e;
+        /* border: 1px solid black; */
+        border-radius: 20px;
         list-style-type: none;
         padding: 20px;
         margin: 10px;
@@ -31,11 +33,12 @@ function Recipe({ recipe, setSelectedRecipe }) {
     `;
 
     const RecipesTitle = styled.p`
+        font-family: "Lobster", "Poppins";
+        font-size: 25px;
         display: flex;
         justify-content: center;
         align-items: center;
         margin: 0;
-        font-size: 20px;
     `;
 
     const RemoveBtn = styled.button`

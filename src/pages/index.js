@@ -34,9 +34,10 @@ export default function Home() {
     `;
 
     const HomePageQuote = styled.h1`
-        font-size: 60px;
+        font-family: "Lobster", "Poppins";
+        font-size: 90px;
         font-weight: bold;
-        color: white;
+        color: #a7c957;
         margin-bottom: 20px;
     `;
 
@@ -44,8 +45,8 @@ export default function Home() {
         padding: 10px 15px;
         font-size: 25px;
         border-radius: 20px;
-        background-color: white;
-        border: none;
+        background-color: #dad7cd;
+        border: 3px solid black;
         color: black;
         cursor: pointer;
         width: 250px;

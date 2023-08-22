@@ -38,6 +38,15 @@ export default function Recipes({ initialRecipes }) {
 
     //Style
     const RecipesPage = styled.div`
+        background-image: url("/homePageImg.jpg");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center center;
+        height: 100vh;
+        width: 100vw;
+    `;
+
+    const RecipesPageDiv = styled.div`
         display: flex;
         flex-direction: row;
         justify-content: space-between;
@@ -49,18 +58,22 @@ export default function Recipes({ initialRecipes }) {
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        background-color: #6a994e;
+        border-radius: 20px;
+        margin: 0 10px;
+        padding: 20px;
     `;
     console.log(recipes);
     useFetch(setRecipes);
 
     return (
-        <>
+        <RecipesPage>
             <Head>
                 <title>Recipes</title>
             </Head>
             <Header />
 
-            <RecipesPage>
+            <RecipesPageDiv>
                 <MyFridge />
                 <RecipesListArea>
                     <SearchInput setRecipes={setRecipes} />
@@ -68,7 +81,7 @@ export default function Recipes({ initialRecipes }) {
                     <RecipesList recipes={recipes} />
                 </RecipesListArea>
                 <MyRecipes />
-            </RecipesPage>
-        </>
+            </RecipesPageDiv>
+        </RecipesPage>
     );
 }

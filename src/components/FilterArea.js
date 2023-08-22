@@ -2,6 +2,7 @@ import { axiosInstance } from "@/axios";
 import axios from "axios";
 import React from "react";
 import { useState, useEffect } from "react";
+import { styled } from "styled-components";
 
 const availableCuisines = [
     "African",
@@ -127,14 +128,34 @@ export default function FilterArea({ setRecipes }) {
         console.log("New Diet Value", value);
     };
 
+    //Style
+    const FilterType = styled.div`
+        margin-top: 20px;
+    `;
+
+    const FilterTypeTytle = styled.h3`
+        font-size: 30px;
+        margin-bottom: 5px;
+    `;
+
+    const Filter = styled.div`
+        display: flex;
+        flex-direction: row;
+        justify-content: start;
+        flex-wrap: wrap;
+    `;
+
+    const FilterLabel = styled.label`
+        margin: 0 5px;
+    `;
+
     return (
         <>
-            <div>
-                <h1>FilterArea</h1>
-                <label>CUISINE</label>
-                <div>
+            <FilterType>
+                <FilterTypeTytle>CUISINE</FilterTypeTytle>
+                <Filter>
                     {availableCuisines.map((cuisine) => (
-                        <label key={cuisine}>
+                        <FilterLabel key={cuisine}>
                             <input
                                 type="checkbox"
                                 value={cuisine}
@@ -144,13 +165,15 @@ export default function FilterArea({ setRecipes }) {
                                 }
                             />
                             {cuisine}
-                        </label>
+                        </FilterLabel>
                     ))}
-                </div>
-                <h3>DIET</h3>
-                <div>
+                </Filter>
+            </FilterType>
+            <FilterType>
+                <FilterTypeTytle>DIET</FilterTypeTytle>
+                <Filter>
                     {availableDiet.map((diet) => (
-                        <label key={diet}>
+                        <FilterLabel key={diet}>
                             <input
                                 type="checkbox"
                                 value={diet}
@@ -158,13 +181,15 @@ export default function FilterArea({ setRecipes }) {
                                 onChange={() => handleDietCheckboxChange(diet)}
                             />
                             {diet}
-                        </label>
+                        </FilterLabel>
                     ))}
-                </div>
-                <h3>INTOLERENCES</h3>
-                <div>
+                </Filter>
+            </FilterType>
+            <FilterType>
+                <FilterTypeTytle>INTOLERENCES</FilterTypeTytle>
+                <Filter>
                     {availableIntolerances.map((intolerances) => (
-                        <label key={intolerances}>
+                        <FilterLabel key={intolerances}>
                             <input
                                 type="checkbox"
                                 value={intolerances}
@@ -178,10 +203,10 @@ export default function FilterArea({ setRecipes }) {
                                 }
                             />
                             {intolerances}
-                        </label>
+                        </FilterLabel>
                     ))}
-                </div>
-            </div>
+                </Filter>
+            </FilterType>
         </>
     );
 }

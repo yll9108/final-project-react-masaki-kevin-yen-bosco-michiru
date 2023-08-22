@@ -13,6 +13,15 @@ export default function ShoppingList() {
 
     //Style
     const ShoppingListPage = styled.div`
+        background-image: url("/homePageImg.jpg");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center center;
+        height: 100vh;
+        width: 100vw;
+    `;
+
+    const ShoppingListDiv = styled.div`
         display: flex;
         flex-direction: row;
         justify-content: space-between;
@@ -20,19 +29,19 @@ export default function ShoppingList() {
     `;
 
     return (
-        <>
+        <ShoppingListPage>
             <Head>
                 <title>Shopping List</title>
             </Head>
             <Header />
-            <ShoppingListPage>
+            <ShoppingListDiv>
                 <MyFridge />
                 <RecipeList
                     recipes={recipes}
                     setSelectedRecipe={setSelectedRecipe}
                 />
                 <ItemsToBuy recipe={selecedRecipe} />
-            </ShoppingListPage>
-        </>
+            </ShoppingListDiv>
+        </ShoppingListPage>
     );
 }

@@ -3,6 +3,7 @@ import Link from "next/link";
 import useAuth from "../hooks/useAuth";
 import { login, logout } from "../lib/auth";
 import { styled } from "styled-components";
+import { BiLogIn, BiLogOut } from "react-icons/bi";
 
 function Header() {
     const user = useAuth();
@@ -13,12 +14,12 @@ function Header() {
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
-        background-color: #ccc;
+        background-color: #a3b18a;
     `;
 
     const CompanyName = styled.h1`
-        font-size: 40px;
-        margin: 20px;
+        font-size: 60px;
+        margin: 25px;
     `;
 
     const HeaderUl = styled.ul`
@@ -29,34 +30,46 @@ function Header() {
     `;
 
     const HeaderLi = styled.li`
-        font-size: 20px;
-        margin: 0 10px;
+        font-size: 25px;
+        margin: 25px;
         cursor: pointer;
     `;
 
     const LoginBtn = styled.button`
-        font-size: 20px;
+        font-size: 30px;
         font-weight: bold;
-        margin: 0 20px;
+        margin: 25px;
         background: none;
         border: none;
         appearance: none;
         cursor: pointer;
     `;
 
+    const LoginImg = styled(BiLogIn)`
+        font-size: 30px;
+        position: relative;
+        top: 6px;
+    `;
+
     const LogoutBtn = styled.button`
-        font-size: 20px;
+        font-size: 30px;
         font-weight: bold;
-        margin: 0 20px;
+        margin: 25px;
         background: none;
         border: none;
         appearance: none;
         cursor: pointer;
+    `;
+
+    const LogoutImg = styled(BiLogOut)`
+        font-size: 30px;
+        position: relative;
+        top: 6px;
     `;
 
     return (
         <Header>
-            <CompanyName>FIRDGEFY</CompanyName>
+            <CompanyName>FRIDGEFY</CompanyName>
             <HeaderUl>
                 <HeaderLi>
                     <Link
@@ -85,9 +98,15 @@ function Header() {
             </HeaderUl>
 
             {user ? (
-                <LogoutBtn onClick={logout}>Logout</LogoutBtn>
+                <LogoutBtn onClick={logout}>
+                    <LogoutImg />
+                    &nbsp;Logout
+                </LogoutBtn>
             ) : (
-                <LoginBtn onClick={login}>Login</LoginBtn>
+                <LoginBtn onClick={login}>
+                    <LoginImg />
+                    &nbsp;Login
+                </LoginBtn>
             )}
         </Header>
     );

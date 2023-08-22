@@ -30,25 +30,28 @@ function SearchInput({ setRecipes }) {
         font-size: 15px;
         padding: 10px;
         padding-left: 30px;
-        margin: 0 10px;
-        border: 1px solid;
+        margin-right: 10px;
+        border: 1px solid #dad7cd;
         width: 300px;
+        ::placeholder {
+            color: #dad7cd;
+        }
     `;
 
     const SearchImg = styled(FaSearch)`
-        position: relative;
-        left: 35px;
-        top: 10.5px;
-        color: gray;
+        position: absolute;
+        left: 512px;
+        top: 161px;
+        color: #dad7cd;
     `;
 
     const SearchBtn = styled.button`
         padding: 10px 15px;
         font-size: 15px;
         border-radius: 5px;
-        background-color: black;
-        border: none;
-        color: white;
+        background-color: #dad7cd;
+        border: 1px solid #dad7cd;
+        color: black;
         cursor: pointer;
     `;
 
@@ -58,6 +61,7 @@ function SearchInput({ setRecipes }) {
             <InputBar
                 onChange={(e) => handleOnChange(e)}
                 placeholder="Search recipes"
+                autoFocus
             />
             <SearchBtn onClick={handleOnClick}>Search</SearchBtn>
         </SearchBar>
