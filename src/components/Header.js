@@ -15,6 +15,7 @@ function Header() {
         justify-content: space-between;
         align-items: center;
         background-color: #a3b18a;
+        box-shadow: 0 1px 5px #344e41;
     `;
 
     const CompanyName = styled.h1`
