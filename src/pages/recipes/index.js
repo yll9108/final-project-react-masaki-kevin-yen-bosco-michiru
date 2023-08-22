@@ -66,9 +66,6 @@ export default function Recipes({ initialRecipes }) {
   const [recipes, setRecipes] = useState(initialRecipes)
   useFetch(setRecipes)
 
-  console.log(recipes)
-  useFetch(setRecipes)
-
   return (
     <RecipesPage>
       <Head>
