@@ -10,7 +10,6 @@ import {
     availableIntolerances,
 } from "@/const/filterContents";
 import Filter from "./Filter";
-import { styled } from "styled-components";
 
 export default function FilterArea() {
     return (

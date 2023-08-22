@@ -5,6 +5,63 @@ import { removeFromMyRecipes } from "@/store/slicers/myReceips";
 import { styled } from "styled-components";
 import { TiDelete } from "react-icons/ti";
 
+//Style
+const MyRecipesDiv = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #6a994e;
+    border-radius: 20px;
+    margin-right: 20px;
+    width: 300px;
+`;
+
+const MyRecipesTitleDiv = styled.div`
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: #a3b18a;
+    border-radius: 20px 20px 0 0;
+    width: 300px;
+    height: 70px;
+`;
+
+const MyRecipesTitle = styled.h2`
+    font-size: 30px;
+`;
+
+const MyRecipesUl = styled.ul`
+    font-size: 15px;
+    list-style-type: none;
+    padding: 20px;
+`;
+
+const MyRecipesLi = styled.li`
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-bottom: 1px solid;
+    margin-bottom: 10px;
+`;
+
+const MyRecipesListTitle = styled.p`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Lobster", "Poppins";
+    font-size: 15px;
+`;
+
+const MyRecipesRemoveBtn = styled.button`
+    font-size: 15px;
+    margin: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    outline: none;
+`;
+
 function MyRecipes() {
     const myRecipes = useSelector((state) => state.recipes.recipes);
     const dispatch = useDispatch();
@@ -24,65 +81,8 @@ function MyRecipes() {
         }
     };
 
-    //Style
-    const MyRecipes = styled.div`
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        background-color: #6a994e;
-        border-radius: 20px;
-        margin-right: 20px;
-        width: 300px;
-    `;
-
-    const MyRecipesTitleDiv = styled.div`
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-        background-color: #a3b18a;
-        border-radius: 20px 20px 0 0;
-        width: 300px;
-        height: 70px;
-    `;
-
-    const MyRecipesTitle = styled.h2`
-        font-size: 30px;
-    `;
-
-    const MyRecipesUl = styled.ul`
-        font-size: 15px;
-        list-style-type: none;
-        padding: 20px;
-    `;
-
-    const MyRecipesLi = styled.li`
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        border-bottom: 1px solid;
-        margin-bottom: 10px;
-    `;
-
-    const MyRecipesListTitle = styled.p`
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        font-family: "Lobster", "Poppins";
-        font-size: 15px;
-    `;
-
-    const MyRecipesRemoveBtn = styled.button`
-        font-size: 15px;
-        margin: 5px;
-        background: none;
-        border: none;
-        cursor: pointer;
-        outline: none;
-    `;
-
     return (
-        <MyRecipes>
+        <MyRecipesDiv>
             <MyRecipesTitleDiv>
                 <MyRecipesTitle>My Recipes</MyRecipesTitle>
             </MyRecipesTitleDiv>
@@ -109,7 +109,7 @@ function MyRecipes() {
                         </MyRecipesLi>
                     ))}
             </MyRecipesUl>
-        </MyRecipes>
+        </MyRecipesDiv>
     );
 }
 

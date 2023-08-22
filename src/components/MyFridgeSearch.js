@@ -6,6 +6,68 @@ import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
 import { FaSearch } from "react-icons/fa";
 
+//Style
+const SreachBar = styled.div`
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 20px;
+`;
+
+const SearchImg = styled(FaSearch)`
+    position: absolute;
+    left: 53px;
+    top: 231px;
+    color: #dad7cd;
+`;
+
+const InputBar = styled.input`
+    border-radius: 5px;
+    font-size: 15px;
+    color: black;
+    padding: 10px;
+    padding-left: 30px;
+    margin-right: 10px;
+    border: 1px solid #dad7cd;
+    width: 140px;
+    ::placeholder {
+        color: #dad7cd;
+    }
+`;
+
+const AddButton = styled.button`
+    padding: 10px 15px;
+    font-size: 15px;
+    border-radius: 5px;
+    background-color: #dad7cd;
+    border: 1px solid #dad7cd;
+    color: black;
+    cursor: pointer;
+`;
+
+const AutoCompleteDropdown = styled.div`
+    display: flex;
+    flex-direction: column;
+    border: none;
+    border-radius: 5px;
+    margin: 0 10px;
+    max-height: 200px;
+    overflow-y: auto;
+    position: absolute;
+    top: 209px;
+    left: 37px;
+`;
+
+const AutoCompleteBtn = styled.button`
+    width: 197px;
+    font-size: 15px;
+    padding: 5px;
+    margin: 0;
+    background: #ccc;
+    border: 1px solid black;
+    cursor: pointer;
+`;
+
 const MyFridgeSearch = () => {
     const [input, setInput] = useState("");
     const dispatch = useDispatch();
@@ -47,68 +109,6 @@ const MyFridgeSearch = () => {
         setAutoComplete([]);
         setInput(item);
     };
-
-    //Style
-    const SreachBar = styled.div`
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        margin-top: 20px;
-    `;
-
-    const SearchImg = styled(FaSearch)`
-        position: absolute;
-        left: 53px;
-        top: 231px;
-        color: #dad7cd;
-    `;
-
-    const InputBar = styled.input`
-        border-radius: 5px;
-        font-size: 15px;
-        color: black;
-        padding: 10px;
-        padding-left: 30px;
-        margin-right: 10px;
-        border: 1px solid #dad7cd;
-        width: 140px;
-        ::placeholder {
-            color: #dad7cd;
-        }
-    `;
-
-    const AddButton = styled.button`
-        padding: 10px 15px;
-        font-size: 15px;
-        border-radius: 5px;
-        background-color: #dad7cd;
-        border: 1px solid #dad7cd;
-        color: black;
-        cursor: pointer;
-    `;
-
-    const AutoCompleteDropdown = styled.div`
-        display: flex;
-        flex-direction: column;
-        border: none;
-        border-radius: 5px;
-        margin: 0 10px;
-        max-height: 200px;
-        overflow-y: auto;
-        position: absolute;
-        top: 209px;
-        left: 37px;
-    `;
-
-    const AutoCompleteBtn = styled.button`
-        width: 197px;
-        font-size: 15px;
-        padding: 5px;
-        margin: 0;
-        background: #ccc;
-        border: 1px solid black;
-        cursor: pointer;
-    `;
 
     return (
         <SreachBar>

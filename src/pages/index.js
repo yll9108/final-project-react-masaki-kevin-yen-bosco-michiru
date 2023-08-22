@@ -4,61 +4,61 @@ import { styled } from "styled-components";
 import Link from "next/link";
 import { HiCursorClick } from "react-icons/hi";
 
+//Style
+const HomePage = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-image: url("/homePageImg.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    height: 100vh;
+    width: 100vw;
+`;
+
+const HomePageDiv = styled.div`
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+`;
+
+const HomePageContents = styled.div`
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    width: 600px;
+`;
+
+const HomePageQuote = styled.h1`
+    font-family: "Lobster", "Poppins";
+    font-size: 90px;
+    font-weight: bold;
+    color: #a7c957;
+    margin-bottom: 20px;
+`;
+
+const StartBtn = styled.button`
+    padding: 10px 15px;
+    font-size: 25px;
+    border-radius: 20px;
+    background-color: #dad7cd;
+    border: 3px solid black;
+    color: black;
+    cursor: pointer;
+    width: 250px;
+    height: 60px;
+`;
+
+const EnterImg = styled(HiCursorClick)`
+    font-size: 25px;
+    position: relative;
+    left: 2px;
+    top: 3px;
+`;
+
 export default function Home() {
-    //Style
-    const HomePage = styled.div`
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        background-image: url("/homePageImg.jpg");
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-position: center center;
-        height: 100vh;
-        width: 100vw;
-    `;
-
-    const HomePageDiv = styled.div`
-        flex: 1;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    `;
-
-    const HomePageContents = styled.div`
-        display: flex;
-        flex-direction: column;
-        text-align: left;
-        width: 600px;
-    `;
-
-    const HomePageQuote = styled.h1`
-        font-family: "Lobster", "Poppins";
-        font-size: 90px;
-        font-weight: bold;
-        color: #a7c957;
-        margin-bottom: 20px;
-    `;
-
-    const StartBtn = styled.button`
-        padding: 10px 15px;
-        font-size: 25px;
-        border-radius: 20px;
-        background-color: #dad7cd;
-        border: 3px solid black;
-        color: black;
-        cursor: pointer;
-        width: 250px;
-        height: 60px;
-    `;
-
-    const EnterImg = styled(HiCursorClick)`
-        font-size: 25px;
-        position: relative;
-        left: 2px;
-        top: 3px;
-    `;
-
     return (
         <HomePage>
             <Head>
