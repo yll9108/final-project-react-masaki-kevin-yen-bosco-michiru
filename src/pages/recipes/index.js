@@ -10,6 +10,35 @@ import FilterArea from '@/components/FilterArea'
 import styled from 'styled-components'
 import { useFetch } from '@/hooks/useFetch'
 
+//Style
+const RecipesPage = styled.div`
+  background-image: url('/homePageImg.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  height: 100vh;
+  width: 100vw;
+`
+
+const RecipesPageDiv = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-top: 20px;
+`
+
+const RecipesListArea = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  background-color: #6a994e;
+  border-radius: 20px;
+  margin: 0 10px;
+  padding: 20px;
+`
+
 export const getStaticProps = async () => {
   try {
     const initialRecipes = await axiosInstance
@@ -33,32 +62,20 @@ export const getStaticProps = async () => {
   }
 }
 
-//Style
-const RecipesPage = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-`
-
-const RecipesListArea = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-`
-
 export default function Recipes({ initialRecipes }) {
   const [recipes, setRecipes] = useState(initialRecipes)
   useFetch(setRecipes)
 
+  console.log(recipes)
+  useFetch(setRecipes)
+
   return (
-    <>
+    <RecipesPage>
       <Head>
         <title>Recipes</title>
       </Head>
       <Header />
-
-      <RecipesPage>
+      <RecipesPageDiv>
         <MyFridge />
         <RecipesListArea>
           <SearchInput />
@@ -66,7 +83,7 @@ export default function Recipes({ initialRecipes }) {
           <RecipesList recipes={recipes} />
         </RecipesListArea>
         <MyRecipes />
-      </RecipesPage>
-    </>
+      </RecipesPageDiv>
+    </RecipesPage>
   )
 }

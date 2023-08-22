@@ -1,91 +1,51 @@
-import React, { useRef, useState } from 'react'
-import { useDebounce } from '@/hooks/useDebounce'
-import { useAutoCompleteFetch } from '@/hooks/useAutoCompleteFetch'
-import { addToFridge } from '@/store/slicers/myFridge'
-import { useDispatch, useSelector } from 'react-redux'
-import styled from 'styled-components'
-import { FaSearch } from 'react-icons/fa'
+import React, { useRef, useState } from "react";
+import { useDebounce } from "@/hooks/useDebounce";
+import { useAutoCompleteFetch } from "@/hooks/useAutoCompleteFetch";
+import { addToFridge } from "@/store/slicers/myFridge";
+import { useDispatch, useSelector } from "react-redux";
+import styled from "styled-components";
+import { FaSearch } from "react-icons/fa";
 
-const MyFridgeSearch = () => {
-  const [input, setInput] = useState('')
-  const dispatch = useDispatch()
-  const items = useSelector((state) => state.fridge.items)
-
-  //why using ref? and not just the normal variable?
-  //it's because varibale changes on every render and ref doesn't change on redering
-  const preventSearchRef = useRef(false)
-
-  const searchKeyword = useDebounce(input)
-
-  const handleAddClick = () => {
-    if (input) {
-      if (items.includes(input)) {
-        window.alert('This item already exists in the fridge!')
-      } else {
-        dispatch(addToFridge(input))
-        setInput('')
-      }
-    }
-  }
-
-  const { autoComplete, setAutoComplete } = useAutoCompleteFetch(
-    preventSearchRef,
-    searchKeyword
-  )
-
-  const handleInputChange = async (e) => {
-    //if it's after the selection, the preventSearchRef is true and doesn't fetch, so change it to false
-    if (preventSearchRef.current === true) {
-      preventSearchRef.current = false
-    }
-    setInput(e.target.value)
-  }
-
-  const handleAutoCompleteClick = (item) => {
-    //don't want to change the autocomplete when you select, so set it to true
-    preventSearchRef.current = true
-    setAutoComplete([])
-    setInput(item)
-  }
-
-  //Style
-  const SreachBar = styled.div`
+//Style
+const SreachBar = styled.div`
     display: flex;
     flex-direction: row;
-  `
+    justify-content: center;
+    margin-top: 20px;
+`;
 
-  const InputArea = styled.div`
-    display: flex;
-    text-align: left;
-  `
+const SearchImg = styled(FaSearch)`
+    position: absolute;
+    left: 53px;
+    top: 231px;
+    color: #dad7cd;
+`;
 
-  const SearchImg = styled(FaSearch)`
-    position: relative;
-    left: 35px;
-    top: 11px;
-    color: gray;
-  `
-
-  const InputBar = styled.input`
+const InputBar = styled.input`
     border-radius: 5px;
     font-size: 15px;
+    color: black;
     padding: 10px;
     padding-left: 30px;
-    margin: 0 10px;
-    border: 1px solid;
-  `
+    margin-right: 10px;
+    border: 1px solid #dad7cd;
+    width: 140px;
+    ::placeholder {
+        color: #dad7cd;
+    }
+`;
 
-  const AddButton = styled.button`
+const AddButton = styled.button`
     padding: 10px 15px;
     font-size: 15px;
     border-radius: 5px;
-    background-color: black;
-    border: none;
-    color: white;
+    background-color: #dad7cd;
+    border: 1px solid #dad7cd;
+    color: black;
     cursor: pointer;
-  `
+`;
 
-  const AutoCompleteDropdown = styled.div`
+const AutoCompleteDropdown = styled.div`
     display: flex;
     flex-direction: column;
     border: none;
@@ -96,9 +56,9 @@ const MyFridgeSearch = () => {
     position: absolute;
     top: 209px;
     left: 37px;
-  `
+`;
 
-  const AutoCompleteBtn = styled.button`
+const AutoCompleteBtn = styled.button`
     width: 197px;
     font-size: 15px;
     padding: 5px;
@@ -106,38 +66,78 @@ const MyFridgeSearch = () => {
     background: #ccc;
     border: 1px solid black;
     cursor: pointer;
-  `
+`;
 
-  return (
-    <SreachBar>
-      <InputArea>
-        <SearchImg />
-        <InputBar
-          type='text'
-          value={input}
-          onChange={handleInputChange}
-          id='inputIngredients'
-          placeholder='Search ingredients'
-          autoFocus
-        ></InputBar>
-      </InputArea>
+const MyFridgeSearch = () => {
+    const [input, setInput] = useState("");
+    const dispatch = useDispatch();
+    const items = useSelector((state) => state.fridge.items);
 
-      {input && autoComplete.length > 0 && (
-        <AutoCompleteDropdown>
-          {autoComplete.map((item, index) => (
-            <AutoCompleteBtn
-              onClick={() => handleAutoCompleteClick(item)}
-              key={index}
-            >
-              {item}
-            </AutoCompleteBtn>
-          ))}
-        </AutoCompleteDropdown>
-      )}
+    //why using ref? and not just the normal variable?
+    //it's because varibale changes on every render and ref doesn't change on redering
+    const preventSearchRef = useRef(false);
 
-      <AddButton onClick={handleAddClick}>Add</AddButton>
-    </SreachBar>
-  )
-}
+    const searchKeyword = useDebounce(input);
 
-export default MyFridgeSearch
+    const handleAddClick = () => {
+        if (input) {
+            if (items.includes(input)) {
+                window.alert("This item already exists in the fridge!");
+            } else {
+                dispatch(addToFridge(input));
+                setInput("");
+            }
+        }
+    };
+
+    const { autoComplete, setAutoComplete } = useAutoCompleteFetch(
+        preventSearchRef,
+        searchKeyword
+    );
+
+    const handleInputChange = async (e) => {
+        //if it's after the selection, the preventSearchRef is true and doesn't fetch, so change it to false
+        if (preventSearchRef.current === true) {
+            preventSearchRef.current = false;
+        }
+        setInput(e.target.value);
+    };
+
+    const handleAutoCompleteClick = (item) => {
+        //don't want to change the autocomplete when you select, so set it to true
+        preventSearchRef.current = true;
+        setAutoComplete([]);
+        setInput(item);
+    };
+
+    return (
+        <SreachBar>
+            <SearchImg />
+            <InputBar
+                type="text"
+                value={input}
+                onChange={handleInputChange}
+                id="inputIngredients"
+                placeholder="Search ingredients"
+                autoFocus
+            ></InputBar>
+
+            {input && autoComplete.length > 0 && (
+                <AutoCompleteDropdown>
+                    {autoComplete.map((item, index) => (
+                        <AutoCompleteBtn
+                            onClick={() => handleAutoCompleteClick(item)}
+                            key={index}
+                        >
+                            {item}
+                        </AutoCompleteBtn>
+                    ))}
+                </AutoCompleteDropdown>
+            )}
+
+            <AddButton onClick={handleAddClick}>Add</AddButton>
+        </SreachBar>
+    );
+};
+
+export default MyFridgeSearch;

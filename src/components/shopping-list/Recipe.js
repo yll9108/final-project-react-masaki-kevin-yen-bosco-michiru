@@ -1,9 +1,53 @@
 import { useState } from "react";
 import { removeFromMyRecipes } from "@/store/slicers/myReceips";
 import { useDispatch } from "react-redux";
-import { styled } from "styled-components";
+import styled from "styled-components";
 import { AiFillDelete } from "react-icons/ai";
 import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
+
+//Style
+const RecipesList = styled.li`
+    background-color: #6a994e;
+    border-radius: 20px;
+    list-style-type: none;
+    padding: 20px;
+    margin: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 700px;
+`;
+
+const RecipesTitle = styled.p`
+    font-family: "Lobster", "Poppins";
+    font-size: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+`;
+
+const RemoveBtn = styled.button`
+    font-size: 25px;
+    color: #bc4749;
+    background: none;
+    border: none;
+    cursor: pointer;
+`;
+
+const ShowBtn = styled.button`
+    font-size: 25px;
+    background: none;
+    border: none;
+    cursor: pointer;
+`;
+
+const HideBtn = styled.button`
+    font-size: 25px;
+    background: none;
+    border: none;
+    cursor: pointer;
+`;
 
 function Recipe({ recipe, setSelectedRecipe }) {
     const [isExpanded, setIsExpanded] = useState(false);
@@ -17,48 +61,6 @@ function Recipe({ recipe, setSelectedRecipe }) {
     const toggleAccordion = () => {
         setIsExpanded((prevExpanded) => !prevExpanded);
     };
-
-    //Style
-    const RecipesList = styled.li`
-        border: 1px solid black;
-        list-style-type: none;
-        padding: 20px;
-        margin: 10px;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        width: 700px;
-    `;
-
-    const RecipesTitle = styled.p`
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin: 0;
-        font-size: 20px;
-    `;
-
-    const RemoveBtn = styled.button`
-        font-size: 25px;
-        color: red;
-        background: none;
-        border: none;
-        cursor: pointer;
-    `;
-
-    const ShowBtn = styled.button`
-        font-size: 25px;
-        background: none;
-        border: none;
-        cursor: pointer;
-    `;
-
-    const HideBtn = styled.button`
-        font-size: 25px;
-        background: none;
-        border: none;
-        cursor: pointer;
-    `;
 
     return (
         <RecipesList>
