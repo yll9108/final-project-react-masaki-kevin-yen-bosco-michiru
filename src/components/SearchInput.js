@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { styled } from "styled-components";
+import styled from "styled-components";
 import { FaSearch } from "react-icons/fa";
 import { addSearchedRecipe } from "@/store/slicers/search";
 import { useDispatch } from "react-redux";

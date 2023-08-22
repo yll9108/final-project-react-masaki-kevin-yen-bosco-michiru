@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { removeFromMyRecipes } from "@/store/slicers/myReceips";
-import { styled } from "styled-components";
+import styled from "styled-components";
 import { TiDelete } from "react-icons/ti";
 
 //Style

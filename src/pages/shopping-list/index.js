@@ -5,7 +5,7 @@ import { useState } from "react";
 import Header from "../../components/Header";
 import MyFridge from "@/components/MyFridge";
 import RecipeList from "../../components/shopping-list/RecipeList";
-import { styled } from "styled-components";
+import styled from "styled-components";
 
 //Style
 const ShoppingListPage = styled.div`

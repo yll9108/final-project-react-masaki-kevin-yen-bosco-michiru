@@ -2,7 +2,7 @@ import React from "react";
 import Image from "next/image";
 import { useDispatch } from "react-redux";
 import { addToMyRecipes } from "@/store/slicers/myReceips";
-import { styled } from "styled-components";
+import styled from "styled-components";
 
 //Style
 const RecipesListDiv = styled.div`

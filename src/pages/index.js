@@ -1,7 +1,7 @@
 import Head from "next/head";
 import Header from "../components/Header";
-import { styled } from "styled-components";
 import Link from "next/link";
+import styled from "styled-components";
 import { HiCursorClick } from "react-icons/hi";
 
 //Style

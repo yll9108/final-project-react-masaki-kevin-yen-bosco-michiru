@@ -1,8 +1,8 @@
 import React from "react";
 import Link from "next/link";
 import useAuth from "../hooks/useAuth";
+import styled from "styled-components";
 import { login, logout } from "../lib/auth";
-import { styled } from "styled-components";
 import { BiLogIn, BiLogOut } from "react-icons/bi";
 
 //Style
