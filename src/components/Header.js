@@ -1,6 +1,5 @@
 import React from "react";
 import Link from "next/link";
-
 import useAuth from "../hooks/useAuth";
 import { login, logout } from "../lib/auth";
 import { styled } from "styled-components";
@@ -14,7 +13,6 @@ function Header() {
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
-        margin-bottom: 20px;
         background-color: #ccc;
     `;
 

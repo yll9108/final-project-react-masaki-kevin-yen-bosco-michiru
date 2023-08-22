@@ -16,12 +16,13 @@ export default function ShoppingList() {
         display: flex;
         flex-direction: row;
         justify-content: space-between;
+        margin-top: 20px;
     `;
 
     return (
         <>
             <Head>
-                <title>ShoppingList</title>
+                <title>Shopping List</title>
             </Head>
             <Header />
             <ShoppingListPage>
