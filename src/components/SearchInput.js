@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { styled } from 'styled-components'
 import { FaSearch } from 'react-icons/fa'
-import { addSearchedRecipe } from '@/store/slicers/search'
+import { addSearchedRecipe, removeSearchedRecipe } from '@/store/slicers/search'
 import { useDispatch } from 'react-redux'
 
 //Style
@@ -46,10 +46,13 @@ function SearchInput() {
     setSearchString(e.target.value)
   }
 
-  console.log('rendered')
-  const handleOnClick = (e) => {
-    e.preventDefault()
+  const handleOnClick = () => {
     dispatch(addSearchedRecipe(searchString))
+  }
+
+  const handleDeleteButtonClick = () => {
+    dispatch(removeSearchedRecipe(searchString))
+    setSearchString('')
   }
 
   return (
@@ -60,6 +63,9 @@ function SearchInput() {
         onChange={(e) => handleOnChange(e)}
         placeholder='Search recipes'
       />
+      <button type='button' onClick={handleDeleteButtonClick}>
+        ✖️
+      </button>
       <SearchBtn onClick={(e) => handleOnClick(e)}>Search</SearchBtn>
     </SearchBar>
   )

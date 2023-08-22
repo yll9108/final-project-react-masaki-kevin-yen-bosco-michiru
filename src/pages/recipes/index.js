@@ -33,25 +33,23 @@ export const getStaticProps = async () => {
   }
 }
 
+//Style
+const RecipesPage = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+`
+
+const RecipesListArea = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`
+
 export default function Recipes({ initialRecipes }) {
   const [recipes, setRecipes] = useState(initialRecipes)
   useFetch(setRecipes)
-
-  //Style
-  const RecipesPage = styled.div`
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-  `
-
-  const RecipesListArea = styled.div`
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  `
-
-  console.log('index rendered')
 
   return (
     <>
