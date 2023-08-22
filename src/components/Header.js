@@ -3,7 +3,7 @@ import Link from "next/link";
 
 import useAuth from "../hooks/useAuth";
 import { login, logout } from "../lib/auth";
-import { styled } from "styled-components";
+import styled from "styled-components";
 
 function Header() {
     const user = useAuth();
