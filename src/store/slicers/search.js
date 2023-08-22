@@ -28,40 +28,48 @@ export const searchSlice = createSlice({
       state.searchRecipe.push(action.payload)
       state.hasChanged = true
     },
-    removeSearchedRecipe: (state, action) => {
-      state.searchRecipe = state.searchRecipe.filter(
-        (item) => item !== action.payload
-      )
-      state.hasChanged = true
-    },
+    // removeSearchedRecipe: (state, action) => {
+    //   state.searchRecipe = state.searchRecipe.filter(
+    //     (item) => item !== action.payload
+    //   )
+    //   state.hasChanged = true
+    // },
     addFilterCuisine: (state, action) => {
-      state.filterCuisine.push(action.payload)
-      state.hasChanged = true
-    },
-    removeFilterCuisine: (state, action) => {
-      state.filterCuisine = state.filterCuisine.filter(
-        (item) => item !== action.payload
+      //check if the item already exsits
+      const keyword = state.filterCuisine.find(
+        (item) => item === action.payload
       )
+      if (keyword) {
+        state.filterCuisine = state.filterCuisine.filter(
+          (item) => item !== action.payload
+        )
+      } else {
+        state.filterCuisine.push(action.payload)
+      }
       state.hasChanged = true
     },
     addFilterDiet: (state, action) => {
-      state.filterDiet.push(action.payload)
-      state.hasChanged = true
-    },
-    removeFilterDiet: (state, action) => {
-      state.filterDiet = state.filterDiet.filter(
-        (item) => item !== action.payload
-      )
+      const keyword = state.filterDiet.find((item) => item === action.payload)
+      if (keyword) {
+        state.filterDiet = state.filterDiet.filter(
+          (item) => item !== action.payload
+        )
+      } else {
+        state.filterDiet.push(action.payload)
+      }
       state.hasChanged = true
     },
     addFilterIntolerance: (state, action) => {
-      state.filterIntolerance.push(action.payload)
-      state.hasChanged = true
-    },
-    removeFilterIntolerance: (state, action) => {
-      state.filterIntolerance = state.filterIntolerance.filter(
-        (item) => item !== action.payload
+      const keyword = state.filterIntolerance.find(
+        (item) => item === action.payload
       )
+      if (keyword) {
+        state.filterIntolerance = state.filterIntolerance.filter(
+          (item) => item !== action.payload
+        )
+      } else {
+        state.filterIntolerance.push(action.payload)
+      }
       state.hasChanged = true
     },
   },

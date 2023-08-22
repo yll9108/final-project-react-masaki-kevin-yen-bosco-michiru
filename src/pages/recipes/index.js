@@ -35,6 +35,7 @@ export const getStaticProps = async () => {
 
 export default function Recipes({ initialRecipes }) {
   const [recipes, setRecipes] = useState(initialRecipes)
+  useFetch(setRecipes)
 
   //Style
   const RecipesPage = styled.div`
@@ -49,7 +50,8 @@ export default function Recipes({ initialRecipes }) {
     justify-content: center;
     align-items: center;
   `
-  useFetch(setRecipes)
+
+  console.log('index rendered')
 
   return (
     <>
@@ -62,7 +64,7 @@ export default function Recipes({ initialRecipes }) {
         <MyFridge />
         <RecipesListArea>
           <SearchInput />
-          {/* <FilterArea setRecipes={setRecipes} /> */}
+          <FilterArea />
           <RecipesList recipes={recipes} />
         </RecipesListArea>
         <MyRecipes />
