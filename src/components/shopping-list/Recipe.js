@@ -20,7 +20,6 @@ const RecipesList = styled.li`
 `;
 
 const RecipesTitle = styled.p`
-    font-family: "Lobster", "Poppins";
     font-size: 25px;
     display: flex;
     justify-content: center;

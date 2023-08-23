@@ -51,7 +51,6 @@ const MyRecipesListTitle = styled.p`
     display: flex;
     justify-content: center;
     align-items: center;
-    font-family: "Lobster", "Poppins";
     font-size: 15px;
 `;
 
