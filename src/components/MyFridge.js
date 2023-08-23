@@ -12,6 +12,7 @@ const MyFridgeDiv = styled.div`
     border-radius: 20px;
     margin: 0 0 20px 20px;
     width: 300px;
+    box-shadow: 0 1px 5px #344e41;
 `;
 
 const MyFrigeTitleDiv = styled.div`

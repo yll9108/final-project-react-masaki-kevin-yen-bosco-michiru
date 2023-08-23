@@ -38,6 +38,7 @@ const RecipesListArea = styled.div`
     border-radius: 20px;
     margin: 0 10px 20px 10px;
     padding: 40px 20px 20px 20px;
+    box-shadow: 0 1px 5px #344e41;
 `;
 
 export const getStaticProps = async () => {

@@ -16,6 +16,7 @@ const RecipesList = styled.li`
     flex-direction: row;
     justify-content: space-between;
     width: 770px;
+    box-shadow: 0 1px 5px #344e41;
 `;
 
 const RecipesTitle = styled.p`

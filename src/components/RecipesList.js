@@ -9,7 +9,9 @@ const RecipesListDiv = styled.div`
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    margin: 20px;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
 `;
 
 const RecipesItems = styled.div`
@@ -20,31 +22,35 @@ const RecipesItems = styled.div`
 `;
 
 const RecipesListLi = styled.li`
+    background-color: #a3b18a;
+    border-radius: 10px;
     list-style-type: none;
-    padding: 20px;
+    padding: 10px;
     margin: 10px;
-    border: 1px solid black;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    width: 200px;
+    width: 180px;
     height: 300px;
+    box-shadow: 0 1px 5px #344e41;
 `;
 
 const RecipesTitle = styled.p`
+    display: flex;
+    justify-content: center;
+    align-items: center;
     font-size: 15px;
-    margin: 5px;
+    margin: 10px;
 `;
 
 const AddBtn = styled.button`
     padding: 10px 15px;
-    margin-top: 10px;
     font-size: 15px;
     border-radius: 5px;
-    background-color: black;
+    background-color: #dad7cd;
     border: none;
-    color: white;
+    color: black;
     cursor: pointer;
 `;
 
@@ -64,8 +70,9 @@ function RecipesList({ recipes }) {
                                 <Image
                                     src={recipe.image}
                                     alt={recipe.title}
-                                    width={200}
-                                    height={200}
+                                    width={170}
+                                    height={170}
+                                    style={{ borderRadius: "10px" }}
                                 />
                                 <RecipesTitle>{recipe.title}</RecipesTitle>
                             </RecipesItems>
