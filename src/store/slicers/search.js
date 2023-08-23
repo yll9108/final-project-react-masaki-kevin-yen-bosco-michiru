@@ -28,12 +28,12 @@ export const searchSlice = createSlice({
       state.searchRecipe.push(action.payload)
       state.hasChanged = true
     },
-    // removeSearchedRecipe: (state, action) => {
-    //   state.searchRecipe = state.searchRecipe.filter(
-    //     (item) => item !== action.payload
-    //   )
-    //   state.hasChanged = true
-    // },
+    removeSearchedRecipe: (state, action) => {
+      state.searchRecipe = state.searchRecipe.filter(
+        (item) => item !== action.payload
+      )
+      state.hasChanged = true
+    },
     addFilterCuisine: (state, action) => {
       //check if the item already exsits
       const keyword = state.filterCuisine.find(
