@@ -12,8 +12,9 @@ const MyRecipesDiv = styled.div`
     align-items: center;
     background-color: #6a994e;
     border-radius: 20px;
-    margin-right: 20px;
+    margin: 0 20px 20px 0;
     width: 300px;
+    box-shadow: 0 1px 5px #344e41;
 `;
 
 const MyRecipesTitleDiv = styled.div`
@@ -43,13 +44,13 @@ const MyRecipesLi = styled.li`
     justify-content: space-between;
     border-bottom: 1px solid;
     margin-bottom: 10px;
+    width: 260px;
 `;
 
 const MyRecipesListTitle = styled.p`
     display: flex;
     justify-content: center;
     align-items: center;
-    font-family: "Lobster", "Poppins";
     font-size: 15px;
 `;
 

@@ -3,7 +3,11 @@ import styled from "styled-components";
 
 //Style
 const FilterType = styled.div`
-    margin-top: 20px;
+    background-color: #a3b18a;
+    border-radius: 20px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 1px 5px #344e41;
 `;
 
 const FilterTypeTytle = styled.h3`

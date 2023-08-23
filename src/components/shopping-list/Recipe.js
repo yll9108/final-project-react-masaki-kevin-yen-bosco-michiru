@@ -11,15 +11,15 @@ const RecipesList = styled.li`
     border-radius: 20px;
     list-style-type: none;
     padding: 20px;
-    margin: 10px;
+    margin: 0px 10px 10px 10px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    width: 700px;
+    width: 770px;
+    box-shadow: 0 1px 5px #344e41;
 `;
 
 const RecipesTitle = styled.p`
-    font-family: "Lobster", "Poppins";
     font-size: 25px;
     display: flex;
     justify-content: center;
