@@ -68,9 +68,6 @@ export default function Recipes({ initialRecipes }) {
     const [recipes, setRecipes] = useState(initialRecipes);
     useFetch(setRecipes);
 
-    console.log(recipes);
-    useFetch(setRecipes);
-
     return (
         <RecipesPage>
             <Head>
@@ -80,8 +77,8 @@ export default function Recipes({ initialRecipes }) {
             <RecipesPageDiv>
                 <MyFridge />
                 <RecipesListArea>
-                    <SearchInput setRecipes={setRecipes} />
-                    <FilterArea setRecipes={setRecipes} />
+                    <SearchInput />
+                    <FilterArea />
                     <RecipesList recipes={recipes} />
                 </RecipesListArea>
                 <MyRecipes />
