@@ -15,9 +15,9 @@ const SreachBar = styled.div`
 `;
 
 const SearchImg = styled(FaSearch)`
-    position: absolute;
-    left: 53px;
-    top: 231px;
+    position: relative;
+    top: 11px;
+    left: 25px;
     color: #dad7cd;
 `;
 

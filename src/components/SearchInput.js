@@ -24,9 +24,9 @@ const InputBar = styled.input`
 `;
 
 const SearchImg = styled(FaSearch)`
-    position: absolute;
-    left: 528px;
-    top: 181px;
+    position: relative;
+    top: 11px;
+    left: 25px;
     color: #dad7cd;
 `;
 
