@@ -1,9 +1,9 @@
 import React from 'react'
-import Link from 'next/link'
 import useAuth from '../hooks/useAuth'
 import styled from 'styled-components'
 import { login, logout } from '../lib/auth'
 import { BiLogIn, BiLogOut } from 'react-icons/bi'
+import HeaderLink from './HeaderLink'
 
 //Style
 const HeaderDiv = styled.div`
@@ -73,25 +73,13 @@ function Header() {
       <CompanyName>FRIDGEFY</CompanyName>
       <HeaderUl>
         <HeaderLi>
-          <Link href='/' style={{ textDecoration: 'none', color: 'inherit' }}>
-            Home
-          </Link>
+          <HeaderLink href='/'>Home</HeaderLink>
         </HeaderLi>
         <HeaderLi>
-          <Link
-            href='recipes'
-            style={{ textDecoration: 'none', color: 'inherit' }}
-          >
-            Recipes
-          </Link>
+          <HeaderLink href='/recipes'>Recipes</HeaderLink>
         </HeaderLi>
         <HeaderLi>
-          <Link
-            href='shopping-list'
-            style={{ textDecoration: 'none', color: 'inherit' }}
-          >
-            Shopping List
-          </Link>
+          <HeaderLink href='/shopping-list'>Shopping List</HeaderLink>
         </HeaderLi>
       </HeaderUl>
 
