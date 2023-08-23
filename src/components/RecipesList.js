@@ -65,10 +65,10 @@ const Popup = styled.div`
 `
 
 const PopupContent = styled.div`
-  background-color: white;
+  background-color: #6a994e;
   padding: 20px;
   border-radius: 10px;
-  max-width: 400px;
+  max-width: 550px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
 `
 
@@ -89,6 +89,9 @@ const PopupTitle = styled.h2`
 `
 
 const IngredientsList = styled.ul`
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
   list-style-type: disc;
   margin: 10px 0;
   padding-left: 20px;
@@ -125,6 +128,11 @@ function RecipesList({ recipes }) {
     console.log('Selected Recipe:', recipe)
     setSelectedRecipe(recipe)
     setShowPopup(true)
+  }
+  const handleOverlayClick = (event) => {
+    if (event.target === event.currentTarget) {
+      handleClosePopup()
+    }
   }
 
   return (
@@ -164,9 +172,9 @@ function RecipesList({ recipes }) {
                   </StyledBtns>
                 </RecipesListLi>
               )
-            })}{' '}
+            })}
           {showPopup && selectedRecipe && (
-            <Popup>
+            <Popup onClick={handleOverlayClick}>
               <PopupContent>
                 <Image
                   src={selectedRecipe.image}
@@ -176,14 +184,28 @@ function RecipesList({ recipes }) {
                 />
                 <PopupTitle>{selectedRecipe.title}</PopupTitle>
                 <IngredientsList>
-                  {selectedRecipe.missedIngredients &&
-                    selectedRecipe.missedIngredients.map(
-                      (ingredient, index) => (
-                        <IngredientItem key={index}>
-                          {ingredient.original}
-                        </IngredientItem>
-                      )
-                    )}
+                  <missedIngredients>
+                    <h2>Missing Ingredients:</h2>
+                    {selectedRecipe.missedIngredients &&
+                      selectedRecipe.missedIngredients.map(
+                        (ingredient, index) => (
+                          <IngredientItem key={index}>
+                            {ingredient.original}
+                          </IngredientItem>
+                        )
+                      )}
+                  </missedIngredients>
+                  <availibleIngredients>
+                    <h2>Ingredients You Have:</h2>
+                    {selectedRecipe.usedIngredients &&
+                      selectedRecipe.usedIngredients.map(
+                        (ingredient, index) => (
+                          <IngredientItem key={index}>
+                            {ingredient.original}
+                          </IngredientItem>
+                        )
+                      )}
+                  </availibleIngredients>
                 </IngredientsList>
                 <CloseButton onClick={handleClosePopup}>Close</CloseButton>
               </PopupContent>
