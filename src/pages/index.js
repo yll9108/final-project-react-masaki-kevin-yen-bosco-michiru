@@ -37,6 +37,7 @@ const HomePageQuote = styled.h1`
     font-weight: bold;
     color: #a7c957;
     margin-bottom: 20px;
+    text-shadow: 2px 2px 5px black;
 `;
 
 const StartBtn = styled.button`
