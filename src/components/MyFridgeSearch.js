@@ -54,16 +54,16 @@ const AutoCompleteDropdown = styled.div`
     max-height: 200px;
     overflow-y: auto;
     position: absolute;
-    top: 209px;
-    left: 37px;
+    top: 259px;
+    left: 34px;
 `;
 
 const AutoCompleteBtn = styled.button`
-    width: 197px;
+    width: 183px;
     font-size: 15px;
     padding: 5px;
     margin: 0;
-    background: #ccc;
+    background: #dad7cd;
     border: 1px solid black;
     cursor: pointer;
 `;
