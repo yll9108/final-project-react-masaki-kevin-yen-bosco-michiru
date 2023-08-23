@@ -8,6 +8,7 @@ import { useDispatch } from "react-redux";
 const SearchBar = styled.div`
     display: flex;
     flex-direction: row;
+    margin-bottom: 40px;
 `;
 
 const InputBar = styled.input`
