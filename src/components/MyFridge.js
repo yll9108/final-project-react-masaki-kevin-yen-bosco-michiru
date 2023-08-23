@@ -10,7 +10,7 @@ const MyFridgeDiv = styled.div`
     align-items: center;
     background-color: #6a994e;
     border-radius: 20px;
-    margin-left: 20px;
+    margin: 0 0 20px 20px;
     width: 300px;
 `;
 
@@ -41,7 +41,7 @@ export default function MyFridge() {
             </MyFrigeTitleDiv>
             <MyFridgeSearch />
             <MyFridgeItems />
-            <MyFridgeTip>Selete items to filter the search</MyFridgeTip>
+            <MyFridgeTip>Select items to filter the search</MyFridgeTip>
         </MyFridgeDiv>
     );
 }

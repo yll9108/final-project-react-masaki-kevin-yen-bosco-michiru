@@ -15,8 +15,9 @@ const RecipesPage = styled.div`
     background-image: url("/homePageImg.jpg");
     background-size: cover;
     background-repeat: no-repeat;
+    background-attachment: fixed;
     background-position: center center;
-    height: 100vh;
+    height: auto;
     width: 100vw;
 `;
 
@@ -35,8 +36,8 @@ const RecipesListArea = styled.div`
     align-items: center;
     background-color: #6a994e;
     border-radius: 20px;
-    margin: 0 10px;
-    padding: 20px;
+    margin: 0 10px 20px 10px;
+    padding: 40px 20px 20px 20px;
 `;
 
 export const getStaticProps = async () => {

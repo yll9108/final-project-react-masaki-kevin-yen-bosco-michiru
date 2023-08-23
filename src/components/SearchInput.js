@@ -13,8 +13,7 @@ const SearchBar = styled.div`
 const InputBar = styled.input`
     border-radius: 5px;
     font-size: 15px;
-    padding: 10px;
-    padding-left: 30px;
+    padding: 10px 10px 10px 30px;
     margin-right: 10px;
     border: 1px solid #dad7cd;
     width: 300px;
@@ -26,7 +25,7 @@ const InputBar = styled.input`
 const SearchImg = styled(FaSearch)`
     position: absolute;
     left: 528px;
-    top: 161px;
+    top: 181px;
     color: #dad7cd;
 `;
 

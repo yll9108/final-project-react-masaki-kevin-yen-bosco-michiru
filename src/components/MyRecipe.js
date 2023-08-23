@@ -12,7 +12,7 @@ const MyRecipesDiv = styled.div`
     align-items: center;
     background-color: #6a994e;
     border-radius: 20px;
-    margin-right: 20px;
+    margin: 0 20px 20px 0;
     width: 300px;
 `;
 
@@ -43,6 +43,7 @@ const MyRecipesLi = styled.li`
     justify-content: space-between;
     border-bottom: 1px solid;
     margin-bottom: 10px;
+    width: 260px;
 `;
 
 const MyRecipesListTitle = styled.p`
