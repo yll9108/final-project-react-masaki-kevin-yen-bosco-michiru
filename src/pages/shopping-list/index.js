@@ -12,8 +12,10 @@ const ShoppingListPage = styled.div`
     background-image: url("/homePageImg.jpg");
     background-size: cover;
     background-repeat: no-repeat;
+    background-attachment: fixed;
     background-position: center center;
-    height: 100vh;
+    height: auto;
+    min-height: 100vh;
     width: 100vw;
 `;
 
