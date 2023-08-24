@@ -20,11 +20,15 @@ const RecipesItems = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    width: 100%;
+    overflow: hidden;
 `;
+
 const StyledBtns = styled.div`
     display: flex;
     flex-direction: row;
 `;
+
 const RecipesListLi = styled.li`
     background-color: #a3b18a;
     border-radius: 10px;
@@ -35,28 +39,31 @@ const RecipesListLi = styled.li`
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    width: 180px;
-    height: 300px;
+    width: 200px;
     box-shadow: 0 1px 5px #344e41;
 `;
 
 const RecipesTitle = styled.p`
-    display: flex;
-    justify-content: center;
-    align-items: center;
     font-size: 15px;
     margin: 10px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    max-width: calc(100% - 20px);
 `;
 
 const AddBtn = styled.button`
     padding: 10px 15px;
+    margin: 0 10px;
+    width: 70px;
     font-size: 15px;
     border-radius: 5px;
-    background-color: #dad7cd;
+    background-color: #a7c957;
     border: none;
     color: black;
     cursor: pointer;
 `;
+
 const Popup = styled.div`
     position: fixed;
     top: 0;
@@ -106,12 +113,13 @@ const IngredientsList = styled.ul`
 const IngredientItem = styled.li`
     margin: 5px 0;
 `;
-const More = styled.button`
+const MoreBtn = styled.button`
     padding: 10px 15px;
-    margin: 10px;
+    margin: 0 10px;
+    width: 70px;
     font-size: 15px;
     border-radius: 5px;
-    background-color: white;
+    background-color: #dad7cd;
     border: none;
     color: black;
     cursor: pointer;
@@ -155,8 +163,8 @@ function RecipesList({ recipes }) {
                                         <Image
                                             src={recipe.image}
                                             alt={recipe.title}
-                                            width={170}
-                                            height={170}
+                                            width={200}
+                                            height={200}
                                             style={{ borderRadius: "10px" }}
                                         />
                                         <RecipesTitle>
@@ -164,13 +172,13 @@ function RecipesList({ recipes }) {
                                         </RecipesTitle>
                                     </RecipesItems>
                                     <StyledBtns>
-                                        <More
+                                        <MoreBtn
                                             onClick={() => {
                                                 handleClick(recipe);
                                             }}
                                         >
                                             More
-                                        </More>
+                                        </MoreBtn>
                                         <AddBtn
                                             onClick={() => {
                                                 handleOnClick(recipe);
