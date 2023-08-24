@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import { addToMyRecipes } from "@/store/slicers/myReceips";
 import styled from "styled-components";
 import RecipeNotFound from "./RecipeNotFound";
+import useAuth from "../hooks/useAuth";
 
 //Style
 const RecipesListDiv = styled.div`
@@ -62,7 +63,8 @@ const AddBtn = styled.button`
     background-color: #a7c957;
     border: none;
     color: black;
-    cursor: pointer;
+    cursor: ${(props) => (props.disabled ? "not-allowed" : "pointer")};
+    opacity: ${(props) => (props.disabled ? "0.5" : "1")};
 `;
 
 const Popup = styled.div`
@@ -127,6 +129,7 @@ const MoreBtn = styled.button`
 `;
 
 function RecipesList({ recipes }) {
+    const user = useAuth();
     const dispatch = useDispatch();
     const handleOnClick = (recipe) => {
         dispatch(addToMyRecipes(recipe));
@@ -140,7 +143,7 @@ function RecipesList({ recipes }) {
     };
 
     const handleClick = (recipe) => {
-        console.log("Selected Recipe:", recipe);
+        if (!user) return;
         setSelectedRecipe(recipe);
         setShowPopup(true);
     };
@@ -184,6 +187,7 @@ function RecipesList({ recipes }) {
                                             onClick={() => {
                                                 handleOnClick(recipe);
                                             }}
+                                            disabled={!user}
                                         >
                                             Add
                                         </AddBtn>

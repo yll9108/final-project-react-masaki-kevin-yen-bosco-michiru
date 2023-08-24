@@ -7,6 +7,7 @@ import {
 } from "@/store/slicers/search";
 import styled from "styled-components";
 import { FaDeleteLeft } from "react-icons/fa6";
+import useAuth from "../hooks/useAuth";
 
 //Style
 const ItemsLi = styled.li`
@@ -35,6 +36,7 @@ const DeleteImg = styled(FaDeleteLeft)`
 `;
 
 const MyFridgeItem = ({ item }) => {
+    const user = useAuth();
     const items = useSelector((state) => state.search.myFridgeIngredients);
     const [isChecked, setIsChecked] = useState(items.includes(item));
     const dispatch = useDispatch();
@@ -43,6 +45,7 @@ const MyFridgeItem = ({ item }) => {
         dispatch(removeFromFridge(item));
     };
     const handleCheckBox = () => {
+        if (!user) return;
         if (!isChecked) {
             dispatch(addmyFridgeIngredients(item));
         } else {
@@ -55,11 +58,13 @@ const MyFridgeItem = ({ item }) => {
         <div>
             <ItemsLi>
                 <input
+                    id={`addFridgeItem-${item}`}
                     type="checkbox"
                     checked={isChecked}
                     onChange={() => handleCheckBox()}
+                    disabled={!user}
                 />
-                {item}
+                <label htmlFor={`addFridgeItem-${item}`}>{item}</label>
                 <DeleteBtn onClick={() => handleDelete()}>
                     <DeleteImg />
                 </DeleteBtn>
