@@ -55,7 +55,7 @@ const AutoCompleteDropdown = styled.div`
     overflow-y: auto;
     position: absolute;
     top: 259px;
-    left: 34px;
+    left: 42px;
 `;
 
 const AutoCompleteBtn = styled.button`
