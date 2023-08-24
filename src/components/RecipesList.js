@@ -103,6 +103,21 @@ const IngredientsList = styled.ul`
   list-style-type: disc;
   margin: 10px 0;
   padding-left: 20px;
+  height: 300px;
+  overflow-y: scroll;
+
+  &::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: #7eab63;
+    border-radius: 10px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: #6a994e;
+  }
 `
 
 const IngredientItem = styled.li`
