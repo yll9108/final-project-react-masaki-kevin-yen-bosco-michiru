@@ -1,12 +1,26 @@
-import React from 'react'
+import React from "react";
+import styled from "styled-components";
+
+//Style
+const RecipesNotFoundDiv = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+`;
+
+const NotFoundText = styled.h1`
+    font-size: 30px;
+    margin: 5px;
+`;
 
 function RecipeNotFound() {
-  return (
-    <div>
-      <h2>No recipes matched your search😔</h2>
-      <p>Switch things up and search again✊ </p>
-    </div>
-  )
+    return (
+        <RecipesNotFoundDiv>
+            <NotFoundText>No recipes matched your search 😔</NotFoundText>
+            <NotFoundText>Switch things up and search again ✊</NotFoundText>
+        </RecipesNotFoundDiv>
+    );
 }
 
-export default RecipeNotFound
+export default RecipeNotFound;
