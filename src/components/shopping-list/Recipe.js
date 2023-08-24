@@ -1,9 +1,7 @@
-import { useState } from "react";
 import { removeFromMyRecipes } from "@/store/slicers/myReceips";
 import { useDispatch } from "react-redux";
 import styled from "styled-components";
 import { AiFillDelete } from "react-icons/ai";
-import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 import { FaArrowUpRightFromSquare } from "react-icons/fa6";
 
 //Style
@@ -26,6 +24,10 @@ const RecipesTitle = styled.p`
     justify-content: center;
     align-items: center;
     margin: 0;
+    cursor: pointer;
+    &:hover {
+        color: #d7f5df;
+    }
 `;
 
 const RemoveBtn = styled.button`
@@ -41,39 +43,16 @@ const RemoveImg = styled(AiFillDelete)`
     top: 3px;
 `;
 
-const ShowBtn = styled.button`
-    font-size: 25px;
-    background: none;
-    border: none;
-    cursor: pointer;
-`;
-
-const HideBtn = styled.button`
-    font-size: 25px;
-    background: none;
-    border: none;
-    cursor: pointer;
-`;
-
 function Recipe({ recipe, setSelectedRecipe }) {
-    const [isExpanded, setIsExpanded] = useState(false);
     const dispatch = useDispatch();
 
     const remove = (recipe) => {
         dispatch(removeFromMyRecipes(recipe.id));
         setSelectedRecipe(null);
     };
-
-    const toggleAccordion = () => {
-        setIsExpanded((prevExpanded) => !prevExpanded);
-    };
-
     return (
         <RecipesList>
             <RecipesTitle
-                style={{
-                    cursor: "pointer",
-                }}
                 onClick={() => setSelectedRecipe(recipe)}
             >
                 {recipe.title}
@@ -82,21 +61,7 @@ function Recipe({ recipe, setSelectedRecipe }) {
                 <RemoveBtn onClick={() => remove(recipe)}>
                     <RemoveImg />
                 </RemoveBtn>
-                {isExpanded ? (
-                    <HideBtn onClick={toggleAccordion}>
-                        <IoIosArrowUp />
-                    </HideBtn>
-                ) : (
-                    <ShowBtn onClick={toggleAccordion}>
-                        <IoIosArrowDown />
-                    </ShowBtn>
-                )}
             </div>
-            {isExpanded && (
-                <div>
-                    <img src={recipe.image} alt={recipe.title} />
-                </div>
-            )}
         </RecipesList>
     );
 }
