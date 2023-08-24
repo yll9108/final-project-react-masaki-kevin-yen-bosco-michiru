@@ -138,6 +138,7 @@ function RecipesList({ recipes }) {
   const user = useAuth()
   const dispatch = useDispatch()
   const handleOnClick = (recipe) => {
+    if (!user) return
     dispatch(addToMyRecipes(recipe))
   }
   const [selectedRecipe, setSelectedRecipe] = useState(null)
@@ -149,7 +150,6 @@ function RecipesList({ recipes }) {
   }
 
   const handleClick = (recipe) => {
-    if (!user) return
     setSelectedRecipe(recipe)
     setShowPopup(true)
   }
