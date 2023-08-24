@@ -64,7 +64,7 @@ const MyFridgeItem = ({ item }) => {
                     onChange={() => handleCheckBox()}
                     disabled={!user}
                 />
-                <label for={`addFridgeItem-${item}`}>{item}</label>
+                <label htmlFor={`addFridgeItem-${item}`}>{item}</label>
                 <DeleteBtn onClick={() => handleDelete()}>
                     <DeleteImg />
                 </DeleteBtn>
