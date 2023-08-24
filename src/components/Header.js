@@ -1,6 +1,7 @@
 import React from "react";
 import useAuth from "../hooks/useAuth";
 import styled from "styled-components";
+import Link from "next/link";
 import { login, logout } from "../lib/auth";
 import { FiLogIn, FiLogOut } from "react-icons/fi";
 import HeaderLink from "./HeaderLink";
@@ -18,6 +19,7 @@ const HeaderDiv = styled.div`
 const CompanyName = styled.h1`
     font-size: 60px;
     margin: 25px;
+    color: black;
 `;
 
 const HeaderUl = styled.ul`
@@ -82,7 +84,9 @@ function Header() {
 
     return (
         <HeaderDiv>
-            <CompanyName>FRIDGEFY</CompanyName>
+            <Link href="/" style={{ textDecoration: "none", color: "inherit" }}>
+                <CompanyName>FRIDGEFY</CompanyName>
+            </Link>
             <HeaderUl>
                 <HeaderLi>
                     <HeaderLink href="/">Home</HeaderLink>
