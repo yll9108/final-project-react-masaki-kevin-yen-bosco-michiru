@@ -20,11 +20,11 @@ const ShoppingListPage = styled.div`
 `;
 
 const ShoppingListDiv = styled.div`
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 320px 1fr 320px;
+    gap: 10px;
     align-items: flex-start;
-    margin-top: 20px;
+    margin: 20px 0 20px 0;
 `;
 
 export default function ShoppingList() {
