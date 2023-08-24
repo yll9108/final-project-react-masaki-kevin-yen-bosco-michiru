@@ -25,6 +25,10 @@ const RecipesTitle = styled.p`
     justify-content: center;
     align-items: center;
     margin: 0;
+    cursor: pointer;
+    &:hover {
+        color: #d7f5df;
+    }
 `;
 
 const RemoveBtn = styled.button`
@@ -65,9 +69,6 @@ function Recipe({ recipe, setSelectedRecipe }) {
     return (
         <RecipesList>
             <RecipesTitle
-                style={{
-                    cursor: "pointer",
-                }}
                 onClick={() => setSelectedRecipe(recipe)}
             >
                 {recipe.title}
