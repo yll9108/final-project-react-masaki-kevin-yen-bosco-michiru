@@ -2,6 +2,7 @@ import { removeFromMyRecipes } from "@/store/slicers/myReceips";
 import { useDispatch } from "react-redux";
 import styled from "styled-components";
 import { AiFillDelete } from "react-icons/ai";
+import { FaArrowUpRightFromSquare } from "react-icons/fa6";
 
 //Style
 const RecipesList = styled.li`
@@ -13,7 +14,7 @@ const RecipesList = styled.li`
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    width: 770px;
+    max-width: 770px;
     box-shadow: 0 1px 5px #344e41;
 `;
 
@@ -37,6 +38,10 @@ const RemoveBtn = styled.button`
     cursor: pointer;
 `;
 
+const RemoveImg = styled(AiFillDelete)`
+    position: relative;
+    top: 3px;
+`;
 
 function Recipe({ recipe, setSelectedRecipe }) {
     const dispatch = useDispatch();
@@ -54,7 +59,7 @@ function Recipe({ recipe, setSelectedRecipe }) {
             </RecipesTitle>
             <div>
                 <RemoveBtn onClick={() => remove(recipe)}>
-                    <AiFillDelete />
+                    <RemoveImg />
                 </RemoveBtn>
             </div>
         </RecipesList>
