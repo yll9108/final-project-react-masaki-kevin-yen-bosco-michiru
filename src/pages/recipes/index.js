@@ -19,6 +19,9 @@ const RecipesPage = styled.div`
     background-position: center center;
     height: auto;
     width: 100vw;
+    @media (max-width: 1024px) {
+        width: 100%;
+    }
 `;
 
 const RecipesPageDiv = styled.div`
@@ -27,6 +30,10 @@ const RecipesPageDiv = styled.div`
     justify-content: space-between;
     align-items: flex-start;
     margin-top: 20px;
+    @media (max-width: 1024px) {
+        flex-direction: row;
+        align-items: flex-start;
+    }
 `;
 
 const RecipesListArea = styled.div`

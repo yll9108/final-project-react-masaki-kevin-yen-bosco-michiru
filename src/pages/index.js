@@ -16,8 +16,8 @@ const HomePage = styled.div`
     height: 100vh;
     width: 100vw;
     @media (max-width: 1024px) {
-        height: 110vh;
-        width: 110vw;
+        height: 100vh;
+        width: 100vw;
     }
 `;
 
@@ -33,6 +33,9 @@ const HomePageContents = styled.div`
     flex-direction: column;
     text-align: left;
     width: 600px;
+    @media (max-width: 1024px) {
+        max-width: 90%; /* Adjusted max-width for tablet */
+    }
 `;
 
 const HomePageQuote = styled.h1`
