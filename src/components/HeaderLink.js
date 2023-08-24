@@ -3,7 +3,7 @@ import { useRouter } from 'next/router'
 import Link from 'next/link'
 import styled from 'styled-components'
 
-const LinkStyle = styled.a`
+const LinkStyle = styled.span`
   text-decoration: none;
   color: inherit;
 
