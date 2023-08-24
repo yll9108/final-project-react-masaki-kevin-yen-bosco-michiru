@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import styled from "styled-components";
 import { AiFillDelete } from "react-icons/ai";
 import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
+import { FaArrowUpRightFromSquare } from "react-icons/fa6";
 
 //Style
 const RecipesList = styled.li`
@@ -33,6 +34,11 @@ const RemoveBtn = styled.button`
     background: none;
     border: none;
     cursor: pointer;
+`;
+
+const RemoveImg = styled(AiFillDelete)`
+    position: relative;
+    top: 3px;
 `;
 
 const ShowBtn = styled.button`
@@ -74,7 +80,7 @@ function Recipe({ recipe, setSelectedRecipe }) {
             </RecipesTitle>
             <div>
                 <RemoveBtn onClick={() => remove(recipe)}>
-                    <AiFillDelete />
+                    <RemoveImg />
                 </RemoveBtn>
                 {isExpanded ? (
                     <HideBtn onClick={toggleAccordion}>

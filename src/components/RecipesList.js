@@ -44,6 +44,7 @@ const RecipesListLi = styled.li`
 `;
 
 const RecipesTitle = styled.p`
+    height: 17px;
     font-size: 15px;
     margin: 10px;
     text-overflow: ellipsis;
