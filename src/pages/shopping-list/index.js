@@ -28,6 +28,7 @@ const ShoppingListDiv = styled.div`
     grid-template-columns: 320px 1fr 320px;
     gap: 10px;
     align-items: flex-start;
+    justify-items: stretch;
     margin: 20px 0 20px 0;
 `;
 

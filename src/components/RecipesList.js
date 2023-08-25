@@ -5,6 +5,8 @@ import { addToMyRecipes } from '@/store/slicers/myReceips'
 import styled from 'styled-components'
 import RecipeNotFound from './RecipeNotFound'
 import useAuth from '../hooks/useAuth'
+import axios from 'axios'
+import { axiosInstance } from '@/axios'
 
 //Style
 const RecipesListDiv = styled.div`
@@ -84,7 +86,11 @@ const Popup = styled.div`
 `
 
 const PopupContent = styled.div`
-  background-color: #6a994e;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #a7c957;
   padding: 20px;
   border-radius: 10px;
   max-width: 550px;
@@ -92,9 +98,9 @@ const PopupContent = styled.div`
 `
 
 const CloseButton = styled.button`
-  padding: 5px 10px;
+  padding: 10px 15px;
   margin-top: 10px;
-  font-size: 14px;
+  font-size: 15px;
   border-radius: 5px;
   background-color: black;
   border: none;
@@ -162,9 +168,26 @@ function RecipesList({ recipes }) {
   }
 
   const handleClick = (recipe) => {
-    setSelectedRecipe(recipe)
+    //somehow there's duplicated ingredients from api so filter and get rid of them
+    const extendedIngredients = recipe.extendedIngredients
+    const ingredientsDictionary = {}
+    const noDuplicateIngredients = extendedIngredients
+      .map((ingredient) => {
+        if (ingredient.name in ingredientsDictionary) {
+          return undefined
+        }
+        ingredientsDictionary[ingredient.name] = 1
+        return ingredient
+      })
+      .filter((v) => typeof v !== 'undefined')
+    setSelectedRecipe({
+      ...recipe,
+      extendedIngredients: noDuplicateIngredients,
+    })
+
     setShowPopup(true)
   }
+
   const handleOverlayClick = (event) => {
     if (event.target === event.currentTarget) {
       handleClosePopup()
@@ -173,7 +196,7 @@ function RecipesList({ recipes }) {
 
   return (
     <div>
-      {recipes.length === 0 ? (
+      {recipes?.length === 0 ? (
         <RecipeNotFound />
       ) : (
         <RecipesListDiv>
@@ -217,32 +240,21 @@ function RecipesList({ recipes }) {
                 <Image
                   src={selectedRecipe.image}
                   alt={selectedRecipe.title}
-                  width={200}
-                  height={200}
+                  width={250}
+                  height={250}
+                  style={{ borderRadius: '10px' }}
                 />
                 <PopupTitle>{selectedRecipe.title}</PopupTitle>
                 <IngredientsList>
                   <div>
-                    <h2>Missing Ingredients:</h2>
-                    {selectedRecipe.missedIngredients &&
-                      selectedRecipe.missedIngredients.map(
-                        (ingredient, index) => (
-                          <IngredientItem key={index}>
-                            {ingredient.original}
-                          </IngredientItem>
-                        )
-                      )}
-                  </div>
-                  <div>
-                    <h2>Ingredients You Have:</h2>
-                    {selectedRecipe.usedIngredients &&
-                      selectedRecipe.usedIngredients.map(
-                        (ingredient, index) => (
-                          <IngredientItem key={index}>
-                            {ingredient.original}
-                          </IngredientItem>
-                        )
-                      )}
+                    <h2>Ingredients:</h2>
+                    {selectedRecipe.extendedIngredients.map(
+                      (ingredient, index) => (
+                        <IngredientItem key={index}>
+                          {ingredient.name}
+                        </IngredientItem>
+                      )
+                    )}
                   </div>
                 </IngredientsList>
                 <CloseButton onClick={handleClosePopup}>Close</CloseButton>
