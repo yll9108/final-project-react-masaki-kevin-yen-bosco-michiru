@@ -17,6 +17,10 @@ const ShoppingListPage = styled.div`
     height: auto;
     min-height: 100vh;
     width: 100vw;
+    @media (max-width: 1024px) {
+        height: 150vh;
+        width: 150vw;
+    }
 `;
 
 const ShoppingListDiv = styled.div`

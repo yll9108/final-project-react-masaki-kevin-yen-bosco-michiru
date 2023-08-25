@@ -15,6 +15,10 @@ const HomePage = styled.div`
     background-position: center center;
     height: 100vh;
     width: 100vw;
+    @media (max-width: 1024px) {
+        height: 100vh;
+        width: 100vw;
+    }
 `;
 
 const HomePageDiv = styled.div`
@@ -29,6 +33,9 @@ const HomePageContents = styled.div`
     flex-direction: column;
     text-align: left;
     width: 600px;
+    @media (max-width: 1024px) {
+        max-width: 90%; /* Adjusted max-width for tablet */
+    }
 `;
 
 const HomePageQuote = styled.h1`
@@ -38,6 +45,9 @@ const HomePageQuote = styled.h1`
     color: #a7c957;
     margin-bottom: 20px;
     text-shadow: 2px 2px 5px black;
+    @media (max-width: 1024px) {
+        font-size: 80px; /* Adjusted font size for tablet */
+    }
 `;
 
 const StartBtn = styled.button`
@@ -57,6 +67,9 @@ const EnterImg = styled(HiCursorClick)`
     position: relative;
     left: 2px;
     top: 3px;
+    @media (max-width: 1024px) {
+        font-size: 20px; /* Adjusted font size for tablet */
+    }
 `;
 
 export default function Home() {
