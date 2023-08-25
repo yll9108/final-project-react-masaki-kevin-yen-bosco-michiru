@@ -5,6 +5,8 @@ import { addToMyRecipes } from '@/store/slicers/myReceips'
 import styled from 'styled-components'
 import RecipeNotFound from './RecipeNotFound'
 import useAuth from '../hooks/useAuth'
+import axios from 'axios'
+import { axiosInstance } from '@/axios'
 
 //Style
 const RecipesListDiv = styled.div`
@@ -158,8 +160,30 @@ function RecipesList({ recipes }) {
     setShowPopup(false)
   }
 
-  const handleClick = (recipe) => {
-    setSelectedRecipe(recipe)
+  const handleClick = async (recipe) => {
+    await axiosInstance
+      .get(
+        `recipes/${recipe.id}/information?apiKey=${process.env.NEXT_PUBLIC_SPOONACULAR_APIKEY}`
+      )
+      .then((res) => {
+        //somehow there's duplicated ingredients from api so filter and get rid of them
+        const extendedIngredients = res.data.extendedIngredients
+        const ingredientsDictionary = {}
+        const noDuplicateIngredients = extendedIngredients
+          .map((ingredient) => {
+            if (ingredient.name in ingredientsDictionary) {
+              return undefined
+            }
+            ingredientsDictionary[ingredient.name] = 1
+            return ingredient
+          })
+          .filter((v) => typeof v !== 'undefined')
+        setSelectedRecipe({
+          ...res.data,
+          extendedIngredients: noDuplicateIngredients,
+        })
+      })
+
     setShowPopup(true)
   }
   const handleOverlayClick = (event) => {
@@ -170,7 +194,7 @@ function RecipesList({ recipes }) {
 
   return (
     <div>
-      {recipes.length === 0 ? (
+      {recipes?.length === 0 ? (
         <RecipeNotFound />
       ) : (
         <RecipesListDiv>
@@ -220,26 +244,14 @@ function RecipesList({ recipes }) {
                 <PopupTitle>{selectedRecipe.title}</PopupTitle>
                 <IngredientsList>
                   <div>
-                    <h2>Missing Ingredients:</h2>
-                    {selectedRecipe.missedIngredients &&
-                      selectedRecipe.missedIngredients.map(
-                        (ingredient, index) => (
-                          <IngredientItem key={index}>
-                            {ingredient.original}
-                          </IngredientItem>
-                        )
-                      )}
-                  </div>
-                  <div>
-                    <h2>Ingredients You Have:</h2>
-                    {selectedRecipe.usedIngredients &&
-                      selectedRecipe.usedIngredients.map(
-                        (ingredient, index) => (
-                          <IngredientItem key={index}>
-                            {ingredient.original}
-                          </IngredientItem>
-                        )
-                      )}
+                    <h2>Ingredients:</h2>
+                    {selectedRecipe.extendedIngredients.map(
+                      (ingredient, index) => (
+                        <IngredientItem key={index}>
+                          {ingredient.name}
+                        </IngredientItem>
+                      )
+                    )}
                   </div>
                 </IngredientsList>
                 <CloseButton onClick={handleClosePopup}>Close</CloseButton>
