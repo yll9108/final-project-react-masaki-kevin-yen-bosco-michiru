@@ -18,6 +18,7 @@ const RecipesPage = styled.div`
     background-attachment: fixed;
     background-position: center center;
     height: auto;
+    min-height: 100vh;
     width: 100vw;
 `;
 

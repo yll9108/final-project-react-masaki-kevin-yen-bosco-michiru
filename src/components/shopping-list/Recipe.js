@@ -10,7 +10,7 @@ const RecipesList = styled.li`
     border-radius: 20px;
     list-style-type: none;
     padding: 20px;
-    margin: 0px 10px 10px 10px;
+    margin-bottom: 10px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -52,9 +52,7 @@ function Recipe({ recipe, setSelectedRecipe }) {
     };
     return (
         <RecipesList>
-            <RecipesTitle
-                onClick={() => setSelectedRecipe(recipe)}
-            >
+            <RecipesTitle onClick={() => setSelectedRecipe(recipe)}>
                 {recipe.title}
             </RecipesTitle>
             <div>
