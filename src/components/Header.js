@@ -15,7 +15,6 @@ const HeaderDiv = styled.div`
   box-shadow: 0 1px 5px #344e41;
 
 @media(max-width:450px){
-  display: ${props => (props.menuOpen ? 'block' : 'none')};
   position: relative;
   display: flex;
   flex-direction: row;
@@ -135,16 +134,15 @@ align-items:center;
 
 
 @media (max-width: 450px) {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
   display: ${props => (props.menuOpen ? 'flex' : 'none')};
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background-color: #a3b18a;
+  flex-direction:column;
+align-items:center;
+background-color: rgba(163, 177, 138, 0.8);
+  position: absolute;
+  top: 100%;
+  right: 0;
+  width: 100vw;
+  padding: 20px;
   z-index: 1;
 }
 `
