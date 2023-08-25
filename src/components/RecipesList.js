@@ -83,7 +83,11 @@ const Popup = styled.div`
 `
 
 const PopupContent = styled.div`
-  background-color: #6a994e;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #a7c957;
   padding: 20px;
   border-radius: 10px;
   max-width: 550px;
@@ -91,9 +95,9 @@ const PopupContent = styled.div`
 `
 
 const CloseButton = styled.button`
-  padding: 5px 10px;
+  padding: 10px 15px;
   margin-top: 10px;
-  font-size: 14px;
+  font-size: 15px;
   border-radius: 5px;
   background-color: black;
   border: none;
@@ -233,8 +237,9 @@ function RecipesList({ recipes }) {
                 <Image
                   src={selectedRecipe.image}
                   alt={selectedRecipe.title}
-                  width={200}
-                  height={200}
+                  width={250}
+                  height={250}
+                  style={{ borderRadius: '10px' }}
                 />
                 <PopupTitle>{selectedRecipe.title}</PopupTitle>
                 <IngredientsList>

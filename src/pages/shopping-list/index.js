@@ -17,6 +17,10 @@ const ShoppingListPage = styled.div`
     height: auto;
     min-height: 100vh;
     width: 100vw;
+    @media (max-width: 1024px) {
+        height: 150vh;
+        width: 150vw;
+    }
 `;
 
 const ShoppingListDiv = styled.div`
@@ -24,6 +28,7 @@ const ShoppingListDiv = styled.div`
     grid-template-columns: 320px 1fr 320px;
     gap: 10px;
     align-items: flex-start;
+    justify-items: stretch;
     margin: 20px 0 20px 0;
 `;
 

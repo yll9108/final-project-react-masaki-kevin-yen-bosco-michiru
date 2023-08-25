@@ -20,6 +20,10 @@ const RecipesPage = styled.div`
   height: auto;
   min-height: 100vh;
   width: 100vw;
+  @media (max-width: 1024px) {
+    height: 150vh;
+    width: 150vw;
+  }
 `
 
 const RecipesPageDiv = styled.div`
@@ -28,6 +32,10 @@ const RecipesPageDiv = styled.div`
   justify-content: space-between;
   align-items: flex-start;
   margin-top: 20px;
+  @media (max-width: 1024px) {
+    flex-direction: row;
+    align-items: flex-start;
+  }
 `
 
 const RecipesListArea = styled.div`
