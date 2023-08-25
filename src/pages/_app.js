@@ -5,11 +5,18 @@ import { initialRecipesSet } from '@/store/slicers/myReceips'
 import { initialFridgeItemsSet } from '@/store/slicers/myFridge'
 import 'src/pages/reset.css'
 import Head from 'next/head'
+import useAuth from "../hooks/useAuth";
 
 //set localstorage items to redux when page is refreshed
 const LocalStorageProvider = ({ children }) => {
+  const user = useAuth();
   const dispatch = useDispatch()
   useEffect(() => {
+    if (!user) {
+      dispatch(initialRecipesSet([]));
+      dispatch(initialFridgeItemsSet([]));
+      return;
+    }
     const existingRecipesList = JSON.parse(
       localStorage.getItem('recipes') ?? '[]'
     )
@@ -18,7 +25,7 @@ const LocalStorageProvider = ({ children }) => {
     )
     dispatch(initialRecipesSet(existingRecipesList))
     dispatch(initialFridgeItemsSet(existingFridgeItemsList))
-  }, [dispatch])
+  }, [dispatch, user])
 
   return <>{children}</>
 }

@@ -1,8 +1,9 @@
 import React from "react";
 import useAuth from "../hooks/useAuth";
 import styled from "styled-components";
+import Link from "next/link";
 import { login, logout } from "../lib/auth";
-import { BiLogIn, BiLogOut } from "react-icons/bi";
+import { FiLogIn, FiLogOut } from "react-icons/fi";
 import HeaderLink from "./HeaderLink";
 
 //Style
@@ -18,6 +19,7 @@ const HeaderDiv = styled.div`
 const CompanyName = styled.h1`
     font-size: 60px;
     margin: 25px;
+    color: black;
     @media (max-width: 1024px) {
         font-size: 40px;
     }
@@ -50,26 +52,38 @@ const LoginBtn = styled.button`
     cursor: pointer;
 `;
 
-const LoginImg = styled(BiLogIn)`
+const LoginImg = styled(FiLogIn)`
     font-size: 30px;
     position: relative;
     top: 6px;
 `;
 
+const LogOutDiv = styled.div`
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+`;
+
+const LogOutTitle = styled.div`
+    font-size: 20px;
+    font-weight: bold;
+`;
+
 const LogoutBtn = styled.button`
     font-size: 30px;
     font-weight: bold;
-    margin: 25px;
+    margin: 25px 25px 25px 0;
     background: none;
     border: none;
     appearance: none;
     cursor: pointer;
 `;
 
-const LogoutImg = styled(BiLogOut)`
+const LogoutImg = styled(FiLogOut)`
     font-size: 30px;
     position: relative;
-    top: 6px;
+    top: 3px;
 `;
 
 function Header() {
@@ -77,7 +91,9 @@ function Header() {
 
     return (
         <HeaderDiv>
-            <CompanyName>FRIDGEFY</CompanyName>
+            <Link href="/" style={{ textDecoration: "none", color: "inherit" }}>
+                <CompanyName>FRIDGEFY</CompanyName>
+            </Link>
             <HeaderUl>
                 <HeaderLi>
                     <HeaderLink href="/">Home</HeaderLink>
@@ -91,10 +107,12 @@ function Header() {
             </HeaderUl>
 
             {user ? (
-                <LogoutBtn onClick={logout}>
-                    <LogoutImg />
-                    &nbsp;Logout
-                </LogoutBtn>
+                <LogOutDiv>
+                    <LogOutTitle>{user.displayName}&nbsp;</LogOutTitle>
+                    <LogoutBtn onClick={logout}>
+                        <LogoutImg />
+                    </LogoutBtn>
+                </LogOutDiv>
             ) : (
                 <LoginBtn onClick={login}>
                     <LoginImg />

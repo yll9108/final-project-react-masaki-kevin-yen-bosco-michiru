@@ -5,6 +5,7 @@ import { addToFridge } from "@/store/slicers/myFridge";
 import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
 import { FaSearch } from "react-icons/fa";
+import useAuth from "../hooks/useAuth";
 
 //Style
 const SreachBar = styled.div`
@@ -42,7 +43,8 @@ const AddButton = styled.button`
     background-color: #dad7cd;
     border: 1px solid #dad7cd;
     color: black;
-    cursor: pointer;
+    cursor: ${(props) => (props.disabled ? "not-allowed" : "pointer")};
+    opacity: ${(props) => (props.disabled ? "0.5" : "1")};
 `;
 
 const AutoCompleteDropdown = styled.div`
@@ -55,7 +57,7 @@ const AutoCompleteDropdown = styled.div`
     overflow-y: auto;
     position: absolute;
     top: 259px;
-    left: 34px;
+    left: 42px;
 `;
 
 const AutoCompleteBtn = styled.button`
@@ -69,6 +71,7 @@ const AutoCompleteBtn = styled.button`
 `;
 
 const MyFridgeSearch = () => {
+    const user = useAuth();
     const [input, setInput] = useState("");
     const dispatch = useDispatch();
     const items = useSelector((state) => state.fridge.items);
@@ -135,7 +138,7 @@ const MyFridgeSearch = () => {
                 </AutoCompleteDropdown>
             )}
 
-            <AddButton onClick={handleAddClick}>Add</AddButton>
+            <AddButton onClick={handleAddClick} disabled={!user}>Add</AddButton>
         </SreachBar>
     );
 };
