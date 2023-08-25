@@ -8,11 +8,18 @@ const FilterType = styled.div`
     padding: 20px;
     margin-bottom: 20px;
     box-shadow: 0 1px 5px #344e41;
+    @media (max-width: 450px) {
+        margin:1rem;
+         
+      }
 `;
 
 const FilterTypeTytle = styled.h3`
     font-size: 30px;
     margin-bottom: 5px;
+    @media (max-width: 450px) {
+        padding: 1vh 1vw 1vh 1vw;
+    }
 `;
 
 const FilterCheck = styled.div`

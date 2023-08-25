@@ -15,6 +15,10 @@ const MyRecipesDiv = styled.div`
     margin: 0 20px 20px 0;
     width: 300px;
     box-shadow: 0 1px 5px #344e41;
+    @media (max-width: 450px) {
+        width: 90vw;
+        margin:0;
+    }
 `;
 
 const MyRecipesTitleDiv = styled.div`
@@ -26,6 +30,10 @@ const MyRecipesTitleDiv = styled.div`
     border-radius: 20px 20px 0 0;
     width: 300px;
     height: 70px;
+    @media (max-width: 450px) {
+        width: 90vw;
+        margin:0;
+    }
 `;
 
 const MyRecipesTitle = styled.h2`

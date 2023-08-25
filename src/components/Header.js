@@ -47,6 +47,7 @@ const HeaderUl = styled.ul`
     flex-direction: row;
   list-style-type: none;
   margin: 0 8rem 0 0;
+  
   @media (max-width: 450px) {
     display: flex;
   flex-direction: column;
@@ -179,9 +180,7 @@ function Header() {
     return (
         <HeaderDiv>
             <Link href="/" style={{ textDecoration: "none", color: "inherit" }}>
-                <CompanyName>FRIDGEFY</CompanyName>
-         
-      
+                <CompanyName>FRIDGEFY</CompanyName>    
             </Link>
             <MenuButton onClick={toggleMenu}>Menu</MenuButton>
             <HeaderSection menuOpen={menuOpen}>

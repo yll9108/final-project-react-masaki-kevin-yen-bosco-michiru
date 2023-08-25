@@ -12,6 +12,11 @@ const SearchBar = styled.div`
     display: flex;
     flex-direction: row;
     margin-bottom: 40px;
+    @media (max-width: 450px) {
+        width: 80vw;
+        align-items:center;
+        margin-bottom:1rem;
+    }
 `;
 
 const InputBar = styled.input`
@@ -22,6 +27,10 @@ const InputBar = styled.input`
     width: 300px;
     ::placeholder {
         color: #dad7cd;
+    }
+    @media (max-width: 450px) {
+        width: 50vw;
+        margin-top:1vh;
     }
 `;
 
@@ -40,6 +49,12 @@ const SearchBtn = styled.button`
     border: 1px solid #dad7cd;
     color: black;
     cursor: pointer;
+    @media (max-width: 450px) {
+        width: 15vw;
+        margin-top:1vh;
+        height:4vh;
+        padding: 1vh 1vw 1vh 1vw;
+    }
 `;
 
 const ClearBtn = styled.button`
@@ -52,6 +67,10 @@ const ClearBtn = styled.button`
     color: grey;
     font-weight: 300;
     cursor: pointer;
+    @media (max-width: 450px) {
+        width: 20vw;
+        margin-top:1vh;
+    }
 `;
 
 function SearchInput() {
