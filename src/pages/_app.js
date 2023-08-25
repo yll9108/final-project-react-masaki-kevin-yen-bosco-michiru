@@ -7,6 +7,7 @@ import 'src/pages/reset.css'
 import Head from 'next/head'
 import useAuth from "../hooks/useAuth";
 
+
 //set localstorage items to redux when page is refreshed
 const LocalStorageProvider = ({ children }) => {
   const user = useAuth();
