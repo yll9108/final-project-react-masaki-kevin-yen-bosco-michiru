@@ -15,6 +15,10 @@ const ShoppingListPage = styled.div`
     background-position: center center;
     height: 100vh;
     width: 100vw;
+    @media (max-width: 1024px) {
+        height: 150vh;
+        width: 150vw;
+    }
 `;
 
 const ShoppingListDiv = styled.div`

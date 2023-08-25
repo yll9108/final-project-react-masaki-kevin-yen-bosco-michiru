@@ -20,7 +20,8 @@ const RecipesPage = styled.div`
     height: auto;
     width: 100vw;
     @media (max-width: 1024px) {
-        width: 100%;
+        height: 150vh;
+        width: 150vw;
     }
 `;
 
