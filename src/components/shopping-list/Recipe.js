@@ -2,7 +2,6 @@ import { removeFromMyRecipes } from "@/store/slicers/myReceips";
 import { useDispatch } from "react-redux";
 import styled from "styled-components";
 import { AiFillDelete } from "react-icons/ai";
-import { FaArrowUpRightFromSquare } from "react-icons/fa6";
 
 //Style
 const RecipesList = styled.li`
