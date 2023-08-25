@@ -180,9 +180,11 @@ function Header() {
         <HeaderDiv>
             <Link href="/" style={{ textDecoration: "none", color: "inherit" }}>
                 <CompanyName>FRIDGEFY</CompanyName>
-          <MenuButton onClick={toggleMenu}>Menu</MenuButton>
-      <HeaderSection menuOpen={menuOpen}>
+         
+      
             </Link>
+            <MenuButton onClick={toggleMenu}>Menu</MenuButton>
+            <HeaderSection menuOpen={menuOpen}>
             <HeaderUl>
                 <HeaderLi>
                     <HeaderLink href="/">Home</HeaderLink>
