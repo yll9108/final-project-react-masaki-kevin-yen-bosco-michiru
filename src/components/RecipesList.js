@@ -160,32 +160,27 @@ function RecipesList({ recipes }) {
     setShowPopup(false)
   }
 
-  const handleClick = async (recipe) => {
-    await axiosInstance
-      .get(
-        `recipes/${recipe.id}/information?apiKey=${process.env.NEXT_PUBLIC_SPOONACULAR_APIKEY}`
-      )
-      .then((res) => {
-        //somehow there's duplicated ingredients from api so filter and get rid of them
-        const extendedIngredients = res.data.extendedIngredients
-        const ingredientsDictionary = {}
-        const noDuplicateIngredients = extendedIngredients
-          .map((ingredient) => {
-            if (ingredient.name in ingredientsDictionary) {
-              return undefined
-            }
-            ingredientsDictionary[ingredient.name] = 1
-            return ingredient
-          })
-          .filter((v) => typeof v !== 'undefined')
-        setSelectedRecipe({
-          ...res.data,
-          extendedIngredients: noDuplicateIngredients,
-        })
+  const handleClick = (recipe) => {
+    //somehow there's duplicated ingredients from api so filter and get rid of them
+    const extendedIngredients = recipe.extendedIngredients
+    const ingredientsDictionary = {}
+    const noDuplicateIngredients = extendedIngredients
+      .map((ingredient) => {
+        if (ingredient.name in ingredientsDictionary) {
+          return undefined
+        }
+        ingredientsDictionary[ingredient.name] = 1
+        return ingredient
       })
+      .filter((v) => typeof v !== 'undefined')
+    setSelectedRecipe({
+      ...recipe,
+      extendedIngredients: noDuplicateIngredients,
+    })
 
     setShowPopup(true)
   }
+
   const handleOverlayClick = (event) => {
     if (event.target === event.currentTarget) {
       handleClosePopup()
