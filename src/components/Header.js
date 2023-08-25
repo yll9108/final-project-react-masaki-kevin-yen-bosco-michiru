@@ -20,6 +20,9 @@ const CompanyName = styled.h1`
     font-size: 60px;
     margin: 25px;
     color: black;
+    @media (max-width: 1024px) {
+        font-size: 40px;
+    }
 `;
 
 const HeaderUl = styled.ul`
@@ -33,6 +36,10 @@ const HeaderLi = styled.li`
     font-size: 25px;
     margin: 25px;
     cursor: pointer;
+    @media (max-width: 1024px) {
+        font-size: 20px;
+        margin: 20px;
+    }
 `;
 
 const LoginBtn = styled.button`
