@@ -31,6 +31,10 @@ const HomePage = styled.div`
         height: 100vh;
         width: 100vw;
     }
+    @media (max-width: 1024px) {
+        height: 100vh;
+        width: 100vw;
+    }
 `;
 
 const HomePageDiv = styled.div`
@@ -58,6 +62,9 @@ const HomePageContents = styled.div`
         text-align:center;
         align-items:center;
       }
+    @media (max-width: 1024px) {
+        max-width: 90%; /* Adjusted max-width for tablet */
+    }
 `;
 
 const HomePageQuote = styled.h1`
@@ -71,6 +78,9 @@ const HomePageQuote = styled.h1`
         width:100vw;
         font-size: 80px;
       }
+    @media (max-width: 1024px) {
+        font-size: 80px; /* Adjusted font size for tablet */
+    }
 `;
 
 const StartBtn = styled.button`
@@ -101,6 +111,9 @@ const EnterImg = styled(HiCursorClick)`
     position: relative;
     left: 2px;
     top: 3px;
+    @media (max-width: 1024px) {
+        font-size: 20px; /* Adjusted font size for tablet */
+    }
 `;
 
 export default function Home() {

@@ -99,14 +99,6 @@ function MyRecipes() {
                             >
                                 <TiDelete size={25} />
                             </MyRecipesRemoveBtn>
-                            {showImage && selectedImage === recipe.image && (
-                                <div>
-                                    <img
-                                        src={selectedImage}
-                                        alt={recipe.title}
-                                    />
-                                </div>
-                            )}
                         </MyRecipesLi>
                     ))}
             </MyRecipesUl>
