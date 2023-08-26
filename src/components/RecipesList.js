@@ -44,6 +44,9 @@ const RecipesListLi = styled.li`
   align-items: center;
   width: 200px;
   box-shadow: 0 1px 5px #344e41;
+  @media (max-width: 450px) {
+    width: 80vw;
+}
 `
 
 const RecipesTitle = styled.p`

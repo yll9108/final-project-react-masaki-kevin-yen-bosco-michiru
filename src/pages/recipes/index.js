@@ -23,7 +23,19 @@ const RecipesPage = styled.div`
   @media (max-width: 1024px) {
     height: 150vh;
     width: 150vw;
-  }
+  } 
+    @media (max-width: 450px) {
+        height: 100vh;
+        width: 100vw;
+        background-image: url("/homePageImg.jpg");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-position: center center;
+        height: auto;
+        display:flex;
+        flex-direction:column;
+    }
 `
 
 const RecipesPageDiv = styled.div`
@@ -36,6 +48,12 @@ const RecipesPageDiv = styled.div`
     flex-direction: row;
     align-items: flex-start;
   }
+    @media (max-width: 450px) {
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+        padding :10px;
+    }
 `
 
 const RecipesListArea = styled.div`
@@ -48,6 +66,12 @@ const RecipesListArea = styled.div`
   margin: 0 10px 20px 10px;
   padding: 40px 20px 20px 20px;
   box-shadow: 0 1px 5px #344e41;
+
+    @media (max-width: 450px) {
+        width: 90vw;
+        margin:1.5rem;
+        padding:2px
+    }
 `
 
 export const getStaticProps = async () => {

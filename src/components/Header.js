@@ -47,6 +47,7 @@ const HeaderUl = styled.ul`
     flex-direction: row;
   list-style-type: none;
   margin: 0 8rem 0 0;
+  
   @media (max-width: 450px) {
     display: flex;
   flex-direction: column;
@@ -155,7 +156,7 @@ align-items:center;
 
 
 @media (max-width: 450px) {
-  display: ${props => (props.menuOpen ? 'flex' : 'none')};
+  display: ${props => (props.$menuOpen ? 'flex' : 'none')};
   flex-direction:column;
 align-items:center;
 background-color: rgba(163, 177, 138, 0.8);
@@ -173,18 +174,16 @@ function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   const toggleMenu = () => {
-    setMenuOpen(!menuOpen); console.log('Menu button clicked');
+    setMenuOpen(!menuOpen);
   };
 
     return (
         <HeaderDiv>
             <Link href="/" style={{ textDecoration: "none", color: "inherit" }}>
-                <CompanyName>FRIDGEFY</CompanyName>
-         
-      
+                <CompanyName>FRIDGEFY</CompanyName>    
             </Link>
             <MenuButton onClick={toggleMenu}>Menu</MenuButton>
-            <HeaderSection menuOpen={menuOpen}>
+            <HeaderSection $menuOpen={menuOpen}>
             <HeaderUl>
                 <HeaderLi>
                     <HeaderLink href="/">Home</HeaderLink>

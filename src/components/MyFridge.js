@@ -13,6 +13,11 @@ const MyFridgeDiv = styled.div`
     margin: 0 0 20px 20px;
     width: 300px;
     box-shadow: 0 1px 5px #344e41;
+    @media (max-width: 450px) {
+        width: 90vw;
+        margin:0 ;
+        padding:0
+    }
 `;
 
 const MyFrigeTitleDiv = styled.div`
@@ -24,6 +29,11 @@ const MyFrigeTitleDiv = styled.div`
     border-radius: 20px 20px 0 0;
     width: 300px;
     height: 70px;
+    @media (max-width: 450px) {
+        width: 90vw;
+        margin:0;
+        padding:0
+    }
 `;
 
 const MyFridgeTitle = styled.h2`
