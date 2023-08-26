@@ -125,13 +125,13 @@ export default function Home() {
             <Header />
             <HomePageDiv>
                 <HomePageContents>
-                    <HomePageQuote classname='homePageQuote'>
+                    <HomePageQuote className='homePageQuote'>
                         Recipes capture moments,
                         <br />
                         ingredients capture hearts.
                     </HomePageQuote>
                     <Link href="recipes" style={{ width: "250px" }}>
-                        <StartBtn classname='startBtn'>
+                        <StartBtn className='startBtn'>
                             GET STARTED&nbsp;
                             <EnterImg />
                         </StartBtn>
