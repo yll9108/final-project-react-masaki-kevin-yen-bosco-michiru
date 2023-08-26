@@ -34,6 +34,7 @@ const HomePage = styled.div`
     @media (max-width: 1024px) {
         height: 100vh;
         width: 100vw;
+        
     }
 `;
 
