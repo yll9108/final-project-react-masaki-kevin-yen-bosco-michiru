@@ -12,6 +12,10 @@ const ItemsToBuyDiv = styled.div`
     margin: 0 20px 20px 0;
     width: 300px;
     box-shadow: 0 1px 5px #344e41;
+    @media (max-width: 450px) {
+        width: 90vw;
+        margin:0;
+    }
 `;
 
 const ItemsToBuyTitleDiv = styled.div`
@@ -23,6 +27,9 @@ const ItemsToBuyTitleDiv = styled.div`
     border-radius: 20px 20px 0 0;
     width: 300px;
     height: 70px;
+    @media (max-width: 450px) {
+        width: 90vw;
+    }
 `;
 
 const ItemsToBuyTitle = styled.h2`

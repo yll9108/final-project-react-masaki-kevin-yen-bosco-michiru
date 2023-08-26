@@ -21,6 +21,18 @@ const ShoppingListPage = styled.div`
         height: 150vh;
         width: 150vw;
     }
+    @media (max-width: 450px) {
+        background-image: url("/homePageImg.jpg");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-position: center center;
+        min-height: 100vh;
+        width: 100vw;
+        display:flex;
+        flex-direction:column;
+        height:auto;
+    }
 `;
 
 const ShoppingListDiv = styled.div`
@@ -30,6 +42,14 @@ const ShoppingListDiv = styled.div`
     align-items: flex-start;
     justify-items: stretch;
     margin: 20px 0 20px 0;
+
+    @media (max-width: 450px) {
+        //height: 100vh;
+        width: 100vw;
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+    }
 `;
 
 export default function ShoppingList() {

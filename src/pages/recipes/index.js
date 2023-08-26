@@ -20,21 +20,21 @@ const RecipesPage = styled.div`
   height: auto;
   min-height: 100vh;
   width: 100vw;
-  @media (max-width: 1024px) {
-    height: 150vh;
-    width: 150vw;
-  } 
+  
     @media (max-width: 450px) {
-        height: 100vh;
+        height: auto;
         width: 100vw;
         background-image: url("/homePageImg.jpg");
         background-size: cover;
         background-repeat: no-repeat;
         background-attachment: fixed;
         background-position: center center;
-        height: auto;
         display:flex;
         flex-direction:column;
+    }
+    @media (min-width: 451px) and(max-width: 1024px) {
+      height: 150vh;
+      width: 150vw;
     }
 `
 
