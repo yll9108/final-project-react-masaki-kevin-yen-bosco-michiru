@@ -105,7 +105,13 @@ const LogOutDiv = styled.div`
     align-items: center;
     flex:1;
 `;
-
+const User = styled.div`
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    flex:1;
+`;
 const LogOutTitle = styled.div`
     font-size: 20px;
     font-weight: bold;
@@ -197,6 +203,7 @@ function Header() {
                     <HeaderLink href="/shopping-list">Shopping List</HeaderLink>
                 </HeaderLi>
             </HeaderUl>
+            <User>
             {user ? (
                 <LogOutDiv>
                     <LogOutTitle>{user.displayName}&nbsp;</LogOutTitle>
@@ -210,6 +217,7 @@ function Header() {
                     &nbsp;Login
                 </LoginBtn>
             )}
+            </User>
       </HeaderSection>
         </HeaderDiv>
     );
