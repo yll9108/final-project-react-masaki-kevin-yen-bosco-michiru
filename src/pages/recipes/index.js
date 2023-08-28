@@ -78,7 +78,7 @@ export const getStaticProps = async () => {
   try {
     const initialRecipes = await axiosInstance
       .get(
-        `recipes/complexSearch?apiKey=${process.env.NEXT_PUBLIC_SPOONACULAR_APIKEY}&number=3&fillIngredients=true&addRecipeInformation=true`
+        `recipes/complexSearch?apiKey=${process.env.NEXT_PUBLIC_SPOONACULAR_APIKEY}&number=12&fillIngredients=true&addRecipeInformation=true`
       )
       .then((res) => res.data.results)
 
