@@ -46,7 +46,8 @@ const HeaderUl = styled.ul`
     display: flex;
     flex-direction: row;
   list-style-type: none;
-  margin: 0 8rem 0 0;
+  flex:1.5;  
+  justify-content: center; 
   
   @media (max-width: 450px) {
     display: flex;
@@ -100,10 +101,17 @@ const LoginImg = styled(FiLogIn)`
 const LogOutDiv = styled.div`
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: center;
+    flex:1;
 `;
-
+const User = styled.div`
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    flex:1;
+`;
 const LogOutTitle = styled.div`
     font-size: 20px;
     font-weight: bold;
@@ -153,7 +161,7 @@ const HeaderSection= styled.div`
 display:flex;
 flex-direction:row;
 align-items:center;
-
+flex:2;
 
 @media (max-width: 450px) {
   display: ${props => (props.$menuOpen ? 'flex' : 'none')};
@@ -179,7 +187,7 @@ function Header() {
 
     return (
         <HeaderDiv>
-            <Link href="/" style={{ textDecoration: "none", color: "inherit" }}>
+            <Link href="/" style={{ textDecoration: "none", color: "inherit" ,flex: "1" }}>
                 <CompanyName>FRIDGEFY</CompanyName>    
             </Link>
             <MenuButton onClick={toggleMenu}>Menu</MenuButton>
@@ -195,7 +203,7 @@ function Header() {
                     <HeaderLink href="/shopping-list">Shopping List</HeaderLink>
                 </HeaderLi>
             </HeaderUl>
-  
+            <User>
             {user ? (
                 <LogOutDiv>
                     <LogOutTitle>{user.displayName}&nbsp;</LogOutTitle>
@@ -209,6 +217,7 @@ function Header() {
                     &nbsp;Login
                 </LoginBtn>
             )}
+            </User>
       </HeaderSection>
         </HeaderDiv>
     );
