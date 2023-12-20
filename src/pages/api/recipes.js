@@ -1,5 +1,5 @@
-import recipesData from "../../data/db.json";
+// import recipesData from "../../data/db.json";
 
-export default function handler(req, res) {
-    res.status(200).json(recipesData.results);
-}
+// export default function handler(req, res) {
+//     res.status(200).json(recipesData.results);
+// }
